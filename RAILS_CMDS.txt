@@ -1,0 +1,25 @@
+This document will walk all the various rails command lines
+used to create this application.
+
+Conventions:
+
+Anything in '< >' are to be filled out with a use case specific value
+
+Command line entries like 'rails' and 'rake' commands
+are prefixed with 'T> ' or 'A> '.
+
+'T> ' is for a template using '< >'
+'A> ' is for actual command without templates but actual values.
+
+Comments are prefixed with '#'
+
+# When creating your new project
+
+ T> rails new <project name> 
+ A> rails new organ_direct_01
+
+ 
+
+
+
+
