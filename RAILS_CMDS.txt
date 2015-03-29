@@ -13,15 +13,18 @@ are prefixed with 'T> ' or 'A> '.
 
 Comments are prefixed with '#'
 
+These are done in order from top to bottom.
+
+#######################
+
 # When creating your new project
 
  T> rails new <project name> 
  A> rails new organ_direct_01
 
-
 #######################
 
-Create a set of static pages, home, help, about
+# Create a set of static pages, home, help, about
 # "CamelCaseName" is the name that prefixes the view with a directory
 # like "views/camelcasename/page1.html.erb"
 # like "views/camelcasename/page2.html.erb"
@@ -29,6 +32,27 @@ Create a set of static pages, home, help, about
 
  T> rails g controller <CamelCaseName> <page1> <page2> <page3>
  A> rails g controller Statics home help about
+
+#######################
+
+# Adding person with firstName and lastName strings.
+# full scaffold
+# type of resource be the "ResourceName" holding multiple fields
+# the "ResourceName" should be singular
+#
+# Note: using text here as the end implementation will be PostgreSQL
+
+ T>rails g scaffold <ResourceName>> <field1>:<type1> <field2>:<type2>
+ A>rails g scaffold Person firstName:text lastName:text
+
+# Due to generationing new migrations we need to run "bin/rake db:migrate RAILS_ENV=development"
+
+ A>bin/rake db:migrate RAILS_ENV=development
+
+#######################
+
+
+
 
 #######################
 

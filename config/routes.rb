@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :people
+
   get 'statics/home'
 
   get 'statics/help'
