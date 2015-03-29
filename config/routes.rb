@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :role_types
+
   resources :people
 
   get 'statics/home'
