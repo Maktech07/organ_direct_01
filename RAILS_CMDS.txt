@@ -67,3 +67,18 @@ These are done in order from top to bottom.
 
 #######################
 
+# Creating the mapping between the RoleTypes and Person.
+# The relationship is has_many, through in both directions with
+# the JOIN table in the middle.
+
+# Example below shows 
+
+ T>rails g model <JoinTableName> <Resource1>:belongs_to <Resource2>:belongs_to
+ A>rails g model PersonRoleType person:belongs_to role_type:belongs_to
+
+# Due to generationing new migrations we need to run "bin/rake db:migrate RAILS_ENV=development"
+
+ A>bin/rake db:migrate RAILS_ENV=development
+
+#######################
+
