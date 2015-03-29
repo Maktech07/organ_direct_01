@@ -61,6 +61,7 @@ class PeopleController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_person
@@ -69,6 +70,11 @@ class PeopleController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
-      params.require(:person).permit(:firstName, :lastName)
+        # THIS IS HUGELY IMPORTANT!!! - THE ROLE_TYPE_IDS below was not being handled correctly
+            # WRONG - SINGULAR HANDLING
+        # params.require(:person).permit(:firstName, :lastName, :role_type_ids  )
+            # RIGHT - PLURAL HANDLING
+      params.require(:person).permit(:firstName, :lastName, role_type_ids: [] )
     end
+
 end

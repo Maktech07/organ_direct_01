@@ -10,5 +10,10 @@
   <%= @person.lastName %>
 </p>
 
+<p>
+<strong>Role Types</strong><br>
+  <%= @person.role_types.map(&:roleName).join(', ') %>
+</p>
+
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %>

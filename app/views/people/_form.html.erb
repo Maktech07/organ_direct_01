@@ -13,11 +13,22 @@
 
   <div class="field">
     <%= f.label :firstName %><br>
-    <%= f.text_area :firstName %>
+    <%= f.text_field :firstName %>
   </div>
   <div class="field">
     <%= f.label :lastName %><br>
-    <%= f.text_area :lastName %>
+    <%= f.text_field :lastName %>
+  </div>
+  <div class="field">
+    <%= f.label :role_types %><br>
+
+   <% RoleType.all.each do |roleType| -%>
+    <div>
+        <%= check_box_tag :role_types_controller_ids, roleType.id, @person.role_types.include?(roleType), :name => 'person[role_type_ids][]' %>
+      <%= label_tag :role_type_ids, roleType.roleName -%>
+    </div>
+  <% end -%>
+
   </div>
   <div class="actions">
     <%= f.submit %>
