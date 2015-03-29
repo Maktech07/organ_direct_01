@@ -18,8 +18,17 @@ Comments are prefixed with '#'
  T> rails new <project name> 
  A> rails new organ_direct_01
 
- 
 
+#######################
 
+Create a set of static pages, home, help, about
+# "CamelCaseName" is the name that prefixes the view with a directory
+# like "views/camelcasename/page1.html.erb"
+# like "views/camelcasename/page2.html.erb"
+# and "controllers/camel_case_name_controller.rb"
 
+ T> rails g controller <CamelCaseName> <page1> <page2> <page3>
+ A> rails g controller Statics home help about
+
+#######################
 
