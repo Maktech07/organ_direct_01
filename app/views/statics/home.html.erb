@@ -1,2 +1,8 @@
-<h1>Statics#home</h1>
-<p>Find me in app/views/statics/home.html.erb</p>
+<%= render 'statics/common_links' %><br>
+
+<h1>Home Page</h1>
+
+<table>
+    <tr><td><%= link_to 'People', people_path %></td></tr>
+    <tr><td><%= link_to 'Roles', role_types_path %></td></tr>
+</table>
