@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :addresses
+
   resources :role_types
 
   resources :people
