@@ -98,3 +98,10 @@ These are done in order from top to bottom.
 
 #######################
 
+Added "Devise" user login support. Followed this video:
+https://www.youtube.com/watch?v=zJYuLebl-Js
+
+#######################
+
+
+
