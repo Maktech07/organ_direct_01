@@ -11,6 +11,12 @@
 </p>
 
 <p>
+  <strong>Address</strong>
+  <%= @person.address %>
+</p>
+
+
+<p>
 <strong>Role Types</strong><br>
   <%= @person.role_types.map(&:roleName).join(', ') %>
 </p>

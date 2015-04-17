@@ -103,5 +103,40 @@ https://www.youtube.com/watch?v=zJYuLebl-Js
 
 #######################
 
+# Creating the mapping between the Address and Person.
+# The relationship is has_many, through in one direction and has_one, through in the other
+# Addresses can have many People, Each Person can only have zero or one Address
+# the JOIN table in the middle.
+
+# Example below shows 
+
+ T>rails g model <JoinTableName> <Resource1>:belongs_to <Resource2>:belongs_to
+ A>rails g model AddressPerson person:belongs_to address:belongs_to
+
+# Due to generationing new migrations we need to run "bin/rake db:migrate RAILS_ENV=development"
+
+ A>bin/rake db:migrate RAILS_ENV=development
+
+NOTES:
+Person -> has a single address
+
+Address -> has N possible people
+
+AddressToPerson -> maps the relationship for person to address
+    
+    Person Needs:
+        has_one :address_person
+        has_one :address, through: :address_person
+        accepts_nested_attributes_for :address_person
+
+    Address Needs:
+        has_many :address_people
+        has_many :people, through: :address_people
+
+    AddressPerson Needs:
+        belongs_to :person
+        belongs_to :address
+
+#######################
 
 

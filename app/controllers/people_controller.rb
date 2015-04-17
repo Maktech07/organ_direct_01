@@ -25,6 +25,7 @@ class PeopleController < ApplicationController
   # POST /people.json
   def create
     @person = Person.new(person_params)
+    address = @person.address_build
 
     respond_to do |format|
       if @person.save
@@ -74,7 +75,7 @@ class PeopleController < ApplicationController
             # WRONG - SINGULAR HANDLING
         # params.require(:person).permit(:firstName, :lastName, :role_type_ids  )
             # RIGHT - PLURAL HANDLING
-      params.require(:person).permit(:firstName, :lastName, role_type_ids: [] )
+      params.require(:person).permit(:firstName, :lastName, address_people_attributes:[:address_id], role_type_ids: [] )
     end
 
 end
