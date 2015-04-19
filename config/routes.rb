@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :grade_levels
+
   resources :emails
 
   resources :phone_numbers

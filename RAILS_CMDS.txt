@@ -246,6 +246,23 @@ In View
 
 #######################
 
+# Creating the mapping between the GradeLevel and Person { requirement is RoleType is Teacher }
+# The relationship is has_one, through in both directions 
+# GradeLevel can have a single Person, Each Person can only have zero or one GradeLevel
+# the JOIN table in the middle.
+
+# Example below shows 
+
+ T>rails g model <JoinTableName> <Resource1>:belongs_to <Resource2>:belongs_to
+ A>rails g model GradeLevelTeacher grade_level:belongs_to person:belongs_to
+
+# Due to generationing new migrations we need to run "bin/rake db:migrate RAILS_ENV=development"
+
+ A>bin/rake db:migrate RAILS_ENV=development
+
+#######################
+
+
 
 
 
