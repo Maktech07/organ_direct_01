@@ -6,4 +6,9 @@ class Person < ActiveRecord::Base
     has_one :address, through: :address_person
 
     accepts_nested_attributes_for :address_person
+
+    has_one :phone_number_person
+    has_one :phone_number, through: :phone_number_person
+
+    accepts_nested_attributes_for :phone_number_person
 end

@@ -182,3 +182,19 @@ In View
 
 #######################
 
+# Creating the mapping between the PhoneNumber and Person.
+# The relationship is has_many, through in one direction and has_one, through in the other
+# PhoneNumber can have many People, Each Person can only have zero or one PhoneNumber
+# the JOIN table in the middle.
+
+# Example below shows 
+
+ T>rails g model <JoinTableName> <Resource1>:belongs_to <Resource2>:belongs_to
+ A>rails g model PhoneNumberPerson person:belongs_to phone_number:belongs_to
+
+# Due to generationing new migrations we need to run "bin/rake db:migrate RAILS_ENV=development"
+
+ A>bin/rake db:migrate RAILS_ENV=development
+
+
+

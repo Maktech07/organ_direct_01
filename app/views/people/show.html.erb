@@ -19,6 +19,15 @@
   <% end %>
 </p>
 
+<p>
+  <strong>Phone Number</strong>
+  <% if @person.phone_number != nil %>
+    <%= @person.phone_number.number %>
+  <% else %>
+    None
+  <% end %>
+</p>
+
 
 <p>
 <strong>Role Types</strong><br>

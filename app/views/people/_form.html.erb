@@ -22,16 +22,28 @@
 
   <% 
     # pick the selection value
-    selectValue = 0 
+    selectAddressValue = 0 
     if @person.address != nil 
-        selectValue = @person.address.id 
+        selectAddressValue = @person.address.id 
     end 
+
+    selectPhoneValue = 0
+    if @person.phone_number != nil
+        selectPhoneValue  = @person.phone_number.id
+    end
   %> 
 
  <div class="field">
      <%= f.label :address %><br>
      <%= f.fields_for :address_person do |ap| %>
-         <%= ap.collection_select(:address_id, Address.all, :id, :streetInfo, { :selected => selectValue, include_blank: true }, { } ) %>
+         <%= ap.collection_select(:address_id, Address.all, :id, :streetInfo, { :selected => selectAddressValue, include_blank: true }, { } ) %>
+     <% end %>
+  </div>
+
+ <div class="field">
+     <%= f.label :phone_number %><br>
+     <%= f.fields_for :phone_number_person do |pn| %>
+         <%= pn.collection_select(:phone_number_id, PhoneNumber.all, :id, :number, { :selected => selectPhoneValue, include_blank: true }, { } ) %>
      <% end %>
   </div>
 
