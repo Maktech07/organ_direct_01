@@ -212,4 +212,42 @@ In View
 
  A>bin/rake db:migrate RAILS_ENV=development
 
+#######################
+
+# Creating the mapping between the Email and Person.
+# The relationship is has_many, through in one direction and has_one, through in the other
+# Email can have many People, Each Person can only have zero or one Email
+# the JOIN table in the middle.
+
+# Example below shows 
+
+ T>rails g model <JoinTableName> <Resource1>:belongs_to <Resource2>:belongs_to
+ A>rails g model EmailPerson person:belongs_to email:belongs_to
+
+# Due to generationing new migrations we need to run "bin/rake db:migrate RAILS_ENV=development"
+
+ A>bin/rake db:migrate RAILS_ENV=development
+
+#######################
+
+# Adding GradeLevel information 
+# full scaffold
+# type of resource be the "ResourceName" holding multiple fields
+# the "ResourceName" should be singular
+#
+# Note: using text here as the end implementation will be PostgreSQL
+
+ T>rails g scaffold <ResourceName>> <field1>:<type1> <field2>:<type2>
+ A>rails g scaffold GradeLevel number:integer name:string 
+
+# Due to generationing new migrations we need to run "bin/rake db:migrate RAILS_ENV=development"
+
+ A>bin/rake db:migrate RAILS_ENV=development
+
+#######################
+
+
+
+
+
 

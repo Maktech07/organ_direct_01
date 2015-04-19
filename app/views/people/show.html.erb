@@ -28,6 +28,15 @@
   <% end %>
 </p>
 
+<p>
+  <strong>Email</strong>
+  <% if @person.email != nil %>
+    <%= @person.email.email %>
+  <% else %>
+    None
+  <% end %>
+</p>
+
 
 <p>
 <strong>Role Types</strong><br>

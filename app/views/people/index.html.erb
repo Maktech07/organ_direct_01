@@ -9,6 +9,7 @@
       <th>Lastname</th>
       <th>Address</th>
       <th>Phone Number</th>
+      <th>Email</th>
       <th>Roles</th>
       <th colspan="3"></th>
     </tr>
@@ -29,6 +30,13 @@
         <td>
             <% if person.phone_number != nil %>
                 <%= person.phone_number.number %>
+            <% else %>
+                None
+            <% end %>
+        </td>
+        <td>
+            <% if person.email != nil %>
+                <%= person.email.email %>
             <% else %>
                 None
             <% end %>

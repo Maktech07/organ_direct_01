@@ -31,6 +31,11 @@
     if @person.phone_number != nil
         selectPhoneValue  = @person.phone_number.id
     end
+
+    selectEmailValue = 0
+    if @person.email != nil
+        selectEmailValue  = @person.email.id
+    end
   %> 
 
  <div class="field">
@@ -44,6 +49,13 @@
      <%= f.label :phone_number %><br>
      <%= f.fields_for :phone_number_person do |pn| %>
          <%= pn.collection_select(:phone_number_id, PhoneNumber.all, :id, :number, { :selected => selectPhoneValue, include_blank: true }, { } ) %>
+     <% end %>
+  </div>
+
+ <div class="field">
+     <%= f.label :email %><br>
+     <%= f.fields_for :email_person do |em| %>
+         <%= em.collection_select(:email_id, Email.all, :id, :email, { :selected => selectEmailValue, include_blank: true }, { } ) %>
      <% end %>
   </div>
 
