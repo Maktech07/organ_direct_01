@@ -15,6 +15,7 @@ class PeopleController < ApplicationController
   # GET /people/new
   def new
     @person = Person.new
+    @address_person = @person.build_address_person
   end
 
   # GET /people/1/edit
@@ -25,8 +26,6 @@ class PeopleController < ApplicationController
   # POST /people.json
   def create
     @person = Person.new(person_params)
-    address = @person.address_build
-
     respond_to do |format|
       if @person.save
         format.html { redirect_to @person, notice: 'Person was successfully created.' }
@@ -61,8 +60,7 @@ class PeopleController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-
+ 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_person
@@ -75,7 +73,8 @@ class PeopleController < ApplicationController
             # WRONG - SINGULAR HANDLING
         # params.require(:person).permit(:firstName, :lastName, :role_type_ids  )
             # RIGHT - PLURAL HANDLING
-      params.require(:person).permit(:firstName, :lastName, address_people_attributes:[:address_id], role_type_ids: [] )
+      params.require(:person).permit(:firstName, :lastName, address_person_attributes: [:id, :person_id, :address_id], role_type_ids: [] )
     end
-
+   
+  
 end

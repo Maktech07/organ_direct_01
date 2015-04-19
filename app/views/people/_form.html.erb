@@ -20,10 +20,18 @@
     <%= f.text_field :lastName %>
   </div>
 
+  <% 
+    # pick the selection value
+    selectValue = 0 
+    if @person.address != nil 
+        selectValue = @person.address.id 
+    end 
+  %> 
+
  <div class="field">
      <%= f.label :address %><br>
-     <%= f.fields_for :address_people do |ap| %>
-     <%= ap.collection_select(:address_id, Address.all, :id, :streetInfo, { include_blank: true } ) %>
+     <%= f.fields_for :address_person do |ap| %>
+         <%= ap.collection_select(:address_id, Address.all, :id, :streetInfo, { :selected => selectValue, include_blank: true }, { } ) %>
      <% end %>
   </div>
 
