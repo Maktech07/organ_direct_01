@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+RoleType.create(roleName: 'Student' )
+RoleType.create(roleName: 'Parent' )
+RoleType.create(roleName: 'Staff' )
+RoleType.create(roleName: 'Principal' )
+RoleType.create(roleName: 'PTCBoard' )
+
+Address.create(streetInfo: '1800 Briarcliffe Blvd', city: 'Wheaton', state: 'IL', zip: '60189')
