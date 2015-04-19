@@ -165,7 +165,6 @@ In View
 
 #######################
 
-
 # Adding PhoneNumber information 
 # full scaffold
 # type of resource be the "ResourceName" holding multiple fields
@@ -196,5 +195,21 @@ In View
 
  A>bin/rake db:migrate RAILS_ENV=development
 
+
+#######################
+
+# Adding Email information 
+# full scaffold
+# type of resource be the "ResourceName" holding multiple fields
+# the "ResourceName" should be singular
+#
+# Note: using text here as the end implementation will be PostgreSQL
+
+ T>rails g scaffold <ResourceName>> <field1>:<type1> <field2>:<type2>
+ A>rails g scaffold Email email:string 
+
+# Due to generationing new migrations we need to run "bin/rake db:migrate RAILS_ENV=development"
+
+ A>bin/rake db:migrate RAILS_ENV=development
 
 
