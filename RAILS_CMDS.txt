@@ -137,6 +137,32 @@ AddressToPerson -> maps the relationship for person to address
         belongs_to :person
         belongs_to :address
 
+In Controller
+ 
+     we need to have to build an initial address_to_person:
+# originally
+   def new
+    @person = Person.new
+  end
+
+# becomes
+   def new
+    @person = Person.new
+    @address_person = @person.build_address_person
+  end
+
+
+In View
+
+ <div class="field">
+     <%= f.label :address %><br>
+     <%= f.fields_for :address_person do |ap| %>
+         <%= ap.collection_select(:address_id, Address.all, :id, :streetInfo, { :selected => selectValue, include_blank: true }, { } ) %>
+     <% end %>
+  </div>
+
+   
+
 #######################
 
 
