@@ -26,4 +26,4 @@ gem 'spring',        group: :development
 #gem 'debugger', group: [:development, :test]
 #
 gem 'devise', '~> 3.4.1'
-
+gem 'seed_dump', '~> 3.2.2'
