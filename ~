@@ -12,11 +12,7 @@
 
 <p>
   <strong>Address</strong>
-  <% if @person.address != nil %>
-    <%= @person.address.streetInfo %>
-  <% else %>
-    None
-  <% end %>
+  <%= @person.address.streetInfo %>
 </p>
 
 
