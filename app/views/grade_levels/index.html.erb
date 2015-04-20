@@ -7,6 +7,7 @@
     <tr>
       <th>Number</th>
       <th>Name</th>
+      <th>Teacher</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,11 @@
       <tr>
         <td><%= grade_level.number %></td>
         <td><%= grade_level.name %></td>
+        <% if grade_level.person != nil %>
+        <td><%= grade_level.person.fullName %></td>
+    <% else %>
+        <td>None</td>
+    <% end %>
         <td><%= link_to 'Show', grade_level %></td>
         <td><%= link_to 'Edit', edit_grade_level_path(grade_level) %></td>
         <td><%= link_to 'Destroy', grade_level, method: :delete, data: { confirm: 'Are you sure?' } %></td>

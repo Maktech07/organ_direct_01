@@ -16,4 +16,14 @@ class Person < ActiveRecord::Base
     has_one :email, through: :email_person
 
     accepts_nested_attributes_for :email_person
+
+
+    def fullName
+        self.firstName + ' ' + self.lastName
+    end
+
+    def teacherList
+        #Person.joins(:role_types).where(role_types: {roleName: 'Teacher'})
+        Person.all
+    end
 end

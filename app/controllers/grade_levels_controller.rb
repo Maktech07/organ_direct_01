@@ -14,10 +14,14 @@ class GradeLevelsController < ApplicationController
 
   def new
     @grade_level = GradeLevel.new
+    @grade_level_teacher = @grade_level.build_grade_level_teacher    
     respond_with(@grade_level)
   end
 
   def edit
+      if @grade_level_teacher == nil
+        @grade_level_teacher = @grade_level.build_grade_level_teacher    
+      end
   end
 
   def create
@@ -42,6 +46,6 @@ class GradeLevelsController < ApplicationController
     end
 
     def grade_level_params
-      params.require(:grade_level).permit(:number, :name)
+      params.require(:grade_level).permit(:number, :name, :grade_level, grade_level_teacher_attributes: [:id, :grade_level_id, :person_id])
     end
 end

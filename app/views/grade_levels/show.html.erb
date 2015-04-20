@@ -10,5 +10,14 @@
   <%= @grade_level.name %>
 </p>
 
+<p>
+  <strong>Teacher:</strong>
+  <% if @grade_level.person != nil %>
+    <%= @grade_level.person.fullName %>
+  <% else %>
+      None
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_grade_level_path(@grade_level) %> |
 <%= link_to 'Back', grade_levels_path %>

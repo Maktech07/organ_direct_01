@@ -19,6 +19,25 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+
+
+  <% 
+    # pick the selection value
+    selectTeacherValue = 0 
+    if @grade_level.person != nil 
+        selectTeacherValue = @grade_level_person.id
+    end 
+
+  %> 
+
+ <div class="field">
+     <%= f.label :person %><br>
+     <%= f.fields_for :grade_level_teacher do |glt| %>
+         <%= glt.collection_select(:person_id, Person.joins(:role_types).where(role_types: {roleName: 'Teacher'}), :id, :fullName, { :selected => selectTeacherValue, include_blank: true }, { } ) %>
+     <% end %>
+  </div>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
