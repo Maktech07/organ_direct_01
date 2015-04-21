@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150419172628) do
+ActiveRecord::Schema.define(version: 20150421012821) do
 
   create_table "address_people", force: true do |t|
     t.integer  "person_id"
@@ -63,6 +63,12 @@ ActiveRecord::Schema.define(version: 20150419172628) do
   create_table "grade_levels", force: true do |t|
     t.integer  "number"
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "name_titles", force: true do |t|
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
