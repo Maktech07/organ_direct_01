@@ -11,9 +11,9 @@
 </p>
 
 <p>
-  <strong>Teacher:</strong>
-  <% if @grade_level.person != nil %>
-    <%= @grade_level.person.fullName %>
+  <strong>Teachers:</strong>
+  <% if @grade_level.people != nil %>
+     <%= @grade_level.people.map(&:fullName).join(', ') %></td>
   <% else %>
       None
   <% end %>

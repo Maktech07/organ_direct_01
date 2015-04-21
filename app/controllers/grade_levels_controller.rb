@@ -14,13 +14,13 @@ class GradeLevelsController < ApplicationController
 
   def new
     @grade_level = GradeLevel.new
-    @grade_level_teacher = @grade_level.build_grade_level_teacher    
+    @grade_level_teachers = @grade_level.grade_level_teachers.build    
     respond_with(@grade_level)
   end
 
   def edit
-      if @grade_level_teacher == nil
-        @grade_level_teacher = @grade_level.build_grade_level_teacher    
+      if @grade_level_teachers == nil
+        @grade_level_teachers = @grade_level.grade_level_teachers.build
       end
   end
 

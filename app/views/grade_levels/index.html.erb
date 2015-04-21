@@ -17,8 +17,8 @@
       <tr>
         <td><%= grade_level.number %></td>
         <td><%= grade_level.name %></td>
-        <% if grade_level.person != nil %>
-        <td><%= grade_level.person.fullName %></td>
+        <% if grade_level.people != nil %>
+        <td><%= grade_level.people.map(&:fullName).join(', ') %></td>
     <% else %>
         <td>None</td>
     <% end %>
