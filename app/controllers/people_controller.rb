@@ -10,6 +10,7 @@ class PeopleController < ApplicationController
   # GET /people/1
   # GET /people/1.json
   def show
+
   end
 
   # GET /people/new
@@ -18,12 +19,17 @@ class PeopleController < ApplicationController
     @address_person = @person.build_address_person
     @phone_number_person = @person.build_phone_number_person
     @email_person = @person.build_email_person
+    @name_title_person = @person.build_name_title_person
   end
 
   # GET /people/1/edit
   def edit
       if @email_person == nil
         @email_person = @person.build_email_person
+      end
+
+      if @name_title_person == nil
+        @name_title_person = @person.build_name_title_person
       end
   end
 
@@ -78,7 +84,7 @@ class PeopleController < ApplicationController
             # WRONG - SINGULAR HANDLING
         # params.require(:person).permit(:firstName, :lastName, :role_type_ids  )
             # RIGHT - PLURAL HANDLING
-      params.require(:person).permit(:firstName, :lastName, address_person_attributes: [:id, :person_id, :address_id], phone_number_person_attributes: [:id, :person_id, :phone_number_id], email_person_attributes: [:id, :person_id, :email_id], role_type_ids: [] )
+      params.require(:person).permit(:firstName, :lastName ,address_person_attributes: [:id, :person_id, :address_id] ,phone_number_person_attributes: [:id, :person_id, :phone_number_id] ,email_person_attributes: [:id, :person_id, :email_id] ,name_title_person_attributes: [:id, :person_id, :name_title_id] ,role_type_ids: [] )
     end
    
   

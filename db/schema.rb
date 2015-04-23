@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150421012821) do
+ActiveRecord::Schema.define(version: 20150422125542) do
 
   create_table "address_people", force: true do |t|
     t.integer  "person_id"
@@ -66,6 +66,16 @@ ActiveRecord::Schema.define(version: 20150421012821) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "name_title_people", force: true do |t|
+    t.integer  "name_title_id"
+    t.integer  "person_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "name_title_people", ["name_title_id"], name: "index_name_title_people_on_name_title_id"
+  add_index "name_title_people", ["person_id"], name: "index_name_title_people_on_person_id"
 
   create_table "name_titles", force: true do |t|
     t.string   "title"

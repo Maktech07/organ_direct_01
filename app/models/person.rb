@@ -17,13 +17,13 @@ class Person < ActiveRecord::Base
 
     accepts_nested_attributes_for :email_person
 
+    has_one :name_title_person
+    has_one :name_title, through: :name_title_person
+
+    accepts_nested_attributes_for :name_title_person
 
     def fullName
         self.firstName + ' ' + self.lastName
     end
 
-    def teacherList
-        #Person.joins(:role_types).where(role_types: {roleName: 'Teacher'})
-        Person.all
-    end
 end

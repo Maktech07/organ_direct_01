@@ -11,15 +11,6 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :firstName %><br>
-    <%= f.text_field :firstName %>
-  </div>
-  <div class="field">
-    <%= f.label :lastName %><br>
-    <%= f.text_field :lastName %>
-  </div>
-
   <% 
     # pick the selection value
     selectAddressValue = 0 
@@ -36,12 +27,33 @@
     if @person.email != nil
         selectEmailValue  = @person.email.id
     end
+
+    selectNameTitleValue = 0
+    if @person.name_title != nil
+        selectNameTitleValue  = @person.name_title.id
+    end
   %> 
 
+  <div class="field">
+     <%= f.label :name_title %><br>
+     <%= f.fields_for :name_title_person do |ntp| %>
+         <%= ntp.collection_select(:name_title_id, NameTitle.all, :id, :title, { :selected => selectNameTitleValue, include_blank: true }, { } ) %>
+     <% end %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :firstName %><br>
+    <%= f.text_field :firstName %>
+  </div>
+  <div class="field">
+    <%= f.label :lastName %><br>
+    <%= f.text_field :lastName %>
+  </div>
  <div class="field">
      <%= f.label :address %><br>
      <%= f.fields_for :address_person do |ap| %>
-         <%= ap.collection_select(:address_id, Address.all, :id, :streetInfo, { :selected => selectAddressValue, include_blank: true }, { } ) %>
+         <%= ap.collection_select(:address_id, Address.all, :id, :fullInfo, { :selected => selectAddressValue, include_blank: true }, { } ) %>
      <% end %>
   </div>
 

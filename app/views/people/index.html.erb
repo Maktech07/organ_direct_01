@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>NameTitle</th>
       <th>Firstname</th>
       <th>Lastname</th>
       <th>Address</th>
@@ -18,6 +19,11 @@
   <tbody>
     <% @people.each do |person| %>
       <tr>
+        <td>
+            <% if person.name_title != nil %>
+                <%= person.name_title.title %>
+            <% end %>
+        </td>
         <td><%= person.firstName %></td>
         <td><%= person.lastName %></td>
         <td>

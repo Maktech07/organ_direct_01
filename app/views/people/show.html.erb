@@ -1,6 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Name Title</strong>
+  <% if @person.name_title != nil %>
+    <%= @person.name_title.title %>
+  <% else %>
+    None
+  <% end %>
+</p>
+
+<p>
   <strong>Firstname:</strong>
   <%= @person.firstName %>
 </p>
