@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :extensions
+
   resources :name_titles
 
   resources :grade_levels
