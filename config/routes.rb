@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :genders
+
   resources :departments
 
   resources :positions
