@@ -286,7 +286,7 @@ In View
 # Example below shows 
 
  T>rails g model <JoinTableName> <Resource1>:belongs_to <Resource2>:belongs_to
- A>rails g model NameTitlePerson game_title:belongs_to person:belongs_to
+ A>rails g model NameTitlePerson name_title:belongs_to person:belongs_to
 
 # Due to generationing new migrations we need to run "bin/rake db:migrate RAILS_ENV=development"
 
@@ -303,6 +303,22 @@ In View
 
  T>rails g scaffold <ResourceName>> <field1>:<type1> <field2>:<type2>
  A>rails g scaffold Extension ext:integer 
+
+# Due to generationing new migrations we need to run "bin/rake db:migrate RAILS_ENV=development"
+
+ A>bin/rake db:migrate RAILS_ENV=development
+
+#######################
+
+# Creating the mapping between the Extension and Person (is Teacher) 
+# The relationship is has_one, through from Person to Extension 
+# Each Person can only have zero or one Extension
+# the JOIN table in the middle.
+
+# Example below shows 
+
+ T>rails g model <JoinTableName> <Resource1>:belongs_to <Resource2>:belongs_to
+ A>rails g model ExtensionPerson extension:belongs_to person:belongs_to
 
 # Due to generationing new migrations we need to run "bin/rake db:migrate RAILS_ENV=development"
 

@@ -12,6 +12,7 @@
       <th>Phone Number</th>
       <th>Email</th>
       <th>Roles</th>
+      <th>Extension</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -48,6 +49,11 @@
             <% end %>
         </td>
         <td><%= person.role_types.map(&:roleName).join(', ') %></td>
+        <td>
+            <% if person.extension != nil %>
+                <%= person.extension.ext %>
+            <% end %>
+        </td>
         <td><%= link_to 'Show', person %></td>
         <td><%= link_to 'Edit', edit_person_path(person) %></td>
         <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -27,7 +27,16 @@ Email.create!([
   {email: "abostrand@ccsd89.org"},
   {email: "mgower@ccsd89.org"},
   {email: "glydon@ccsd89.org"},
-  {email: "sbarth@ccsd89.org"}
+  {email: "sbarth@ccsd89.org"},
+  {email: "rclementi@ccsd89.org"},
+  {email: "vhsu@ccsd89.org"},
+  {email: "vfaust@ccsd89.org"},
+  {email: "rhughes@ccsd89.org"},
+  {email: "lperlini@ccsd89.org"},
+  {email: "ericci@ccsd89.org"},
+  {email: "kladuca@ccsd89.org"},
+  {email: "mbudz@ccsd89.org"},
+  {email: "eshields@ccsd89.org"},
 ])
 EmailPerson.create!([
   {person_id: nil, email_id: 1},
@@ -122,7 +131,15 @@ Person.create!([
   {firstName: "Aimee", lastName: "Bostrand"},
   {firstName: "Michelle", lastName: "Gower"},
   {firstName: "Gina", lastName: "Lydon"},
-  {firstName: "Shawn", lastName: "Barth"}
+  {firstName: "Shawn", lastName: "Barth"},
+  {firstName: "Rosangela", lastName: "Clementi"},
+  {firstName: "Vicky", lastName: "Hsu"},
+  {firstName: "Rickey", lastName: "Hughes"},
+  {firstName: "Linda", lastName: "Perlini"},
+  {firstName: "Erin", lastName: "Ricci"},
+  {firstName: "Katie", lastName: "LaDuca"},
+  {firstName: "Michelle", lastName: "Budz"},
+  {firstName: "Emily", lastName: "Shields"},
 ])
 PersonRoleType.create!([
   {person_id: 1, role_type_id: 2},

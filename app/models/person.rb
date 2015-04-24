@@ -22,6 +22,13 @@ class Person < ActiveRecord::Base
 
     accepts_nested_attributes_for :name_title_person
 
+    has_one :extension_person
+    has_one :extension, through: :extension_person
+
+    accepts_nested_attributes_for :extension_person
+
+
+
     def fullName
         self.firstName + ' ' + self.lastName
     end

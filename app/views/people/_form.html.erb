@@ -32,7 +32,14 @@
     if @person.name_title != nil
         selectNameTitleValue  = @person.name_title.id
     end
+
+    selectExtValue = 0
+    if @person.extension != nil
+        selectExtValue  = @person.extension.id
+    end
+
   %> 
+
 
   <div class="field">
      <%= f.label :name_title %><br>
@@ -81,6 +88,14 @@
       <%= label_tag :role_type_ids, roleType.roleName -%>
     </div>
   <% end -%>
+
+ <div class="field">
+     <%= f.label :extension %><br>
+     <%= f.fields_for :extension_person do |ex| %>
+         <%= ex.collection_select(:extension_id, Extension.all, :id, :ext, { :selected => selectExtValue, include_blank: true }, { } ) %>
+     <% end %>
+  </div>
+
 
   </div>
   <div class="actions">

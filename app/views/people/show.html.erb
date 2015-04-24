@@ -52,5 +52,12 @@
   <%= @person.role_types.map(&:roleName).join(', ') %>
 </p>
 
+<p>
+  <strong>Extension</strong>
+  <% if @person.extension != nil %>
+    <%= @person.extension.ext %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %>

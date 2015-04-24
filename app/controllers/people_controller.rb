@@ -1,5 +1,10 @@
 class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
+  before_action :set_name_title_person, only: [:show, :edit, :update, :destroy]
+  before_action :set_address_person, only: [:show, :edit, :update, :destroy]
+  before_action :set_email_person, only: [:show, :edit, :update, :destroy]
+  before_action :set_phone_number_person, only: [:show, :edit, :update, :destroy]
+  before_action :set_extension_person, only: [:show, :edit, :update, :destroy]
 
   # GET /people
   # GET /people.json
@@ -15,28 +20,25 @@ class PeopleController < ApplicationController
 
   # GET /people/new
   def new
+    puts "NEW PEOPLE CALLED"
     @person = Person.new
     @address_person = @person.build_address_person
     @phone_number_person = @person.build_phone_number_person
     @email_person = @person.build_email_person
     @name_title_person = @person.build_name_title_person
+    @extension_person = @person.build_extension_person
   end
 
   # GET /people/1/edit
   def edit
-      if @email_person == nil
-        @email_person = @person.build_email_person
-      end
-
-      if @name_title_person == nil
-        @name_title_person = @person.build_name_title_person
-      end
   end
 
   # POST /people
   # POST /people.json
   def create
+    puts "CREATE PEOPLE CALLED"
     @person = Person.new(person_params)
+
     respond_to do |format|
       if @person.save
         format.html { redirect_to @person, notice: 'Person was successfully created.' }
@@ -78,13 +80,35 @@ class PeopleController < ApplicationController
       @person = Person.find(params[:id])
     end
 
+    def set_address_person
+        @address_person = AddressPerson.find_or_create_by(person_id: @person.id)
+    end
+
+    def set_name_title_person
+        @name_title_person = NameTitlePerson.find_or_create_by(person_id: @person.id)
+    end
+
+    def set_extension_person
+        @extension_person = ExtensionPerson.find_or_create_by(person_id: @person.id)
+    end
+
+    def set_phone_number_person
+        @phone_number_person = PhoneNumberPerson.find_or_create_by(person_id: @person.id)
+    end
+
+    def set_email_person
+        @email_person = EmailPerson.find_or_create_by(person_id: @person.id)
+    end
+
+
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
         # THIS IS HUGELY IMPORTANT!!! - THE ROLE_TYPE_IDS below was not being handled correctly
             # WRONG - SINGULAR HANDLING
         # params.require(:person).permit(:firstName, :lastName, :role_type_ids  )
             # RIGHT - PLURAL HANDLING
-      params.require(:person).permit(:firstName, :lastName ,address_person_attributes: [:id, :person_id, :address_id] ,phone_number_person_attributes: [:id, :person_id, :phone_number_id] ,email_person_attributes: [:id, :person_id, :email_id] ,name_title_person_attributes: [:id, :person_id, :name_title_id] ,role_type_ids: [] )
+      params.require(:person).permit(:firstName, :lastName ,address_person_attributes: [:id, :person_id, :address_id] ,phone_number_person_attributes: [:id, :person_id, :phone_number_id] ,email_person_attributes: [:id, :person_id, :email_id] ,name_title_person_attributes: [:id, :person_id, :name_title_id], extension_person_attributes: [:id, :person_id, :extension_id] ,role_type_ids: [] )
     end
    
   
