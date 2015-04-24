@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :rooms
+
   resources :extensions
 
   resources :name_titles
