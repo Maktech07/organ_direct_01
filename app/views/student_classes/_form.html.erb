@@ -1,0 +1,21 @@
+<%= form_for(@student_class) do |f| %>
+  <% if @student_class.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@student_class.errors.count, "error") %> prohibited this student_class from being saved:</h2>
+
+      <ul>
+      <% @student_class.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :grade_level_teacher_id %><br>
+    <%= f.collection_select(:grade_level_teacher_id, GradeLevelTeacher.all, :id, :fullInfo, { :selected => @student_class.grade_level_teacher_id, include_blank: true }, { } ) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
