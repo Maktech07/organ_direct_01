@@ -15,6 +15,7 @@
     <%= f.label :grade_level_teacher_id %><br>
     <%= f.collection_select(:grade_level_teacher_id, GradeLevelTeacher.all, :id, :fullInfo, { :selected => @student_class.grade_level_teacher_id, include_blank: true }, { } ) %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

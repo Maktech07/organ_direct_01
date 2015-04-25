@@ -390,7 +390,7 @@ In View
 
 #######################
 
-# Adding Class information 
+# Adding StudentClass information 
 # full scaffold
 # type of resource be the "ResourceName" holding multiple fields
 # the "ResourceName" should be singular
@@ -398,13 +398,32 @@ In View
 # Note: using text here as the end implementation will be PostgreSQL
 
  T>rails g scaffold <ResourceName>> <field1>:<type1> <field2>:<type2>
- A>rails g scaffold Class grade_level_teacher:belongs_to 
+ A>rails g scaffold StudentClass grade_level_teacher:belongs_to 
 
 # Due to generationing new migrations we need to run "bin/rake db:migrate RAILS_ENV=development"
 
  A>bin/rake db:migrate RAILS_ENV=development
 
 #######################
+
+# Creating the mapping between the Student_Class and Person (is Student) 
+# The relationship is Student_Class has many Person (Student) 
+# The relationship is Person (Student) has_one Student_Class
+# the JOIN table in the middle.
+
+# Example below shows 
+
+ T>rails g model <JoinTableName> <Resource1>:belongs_to <Resource2>:belongs_to
+ A>rails g model ClassMember student_class:belongs_to person:belongs_to
+
+# Due to generationing new migrations we need to run "bin/rake db:migrate RAILS_ENV=development"
+
+ A>bin/rake db:migrate RAILS_ENV=development
+
+#
+
+#######################
+
 
 
 
