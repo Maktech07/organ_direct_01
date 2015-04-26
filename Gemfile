@@ -27,3 +27,6 @@ gem 'spring',        group: :development
 #
 gem 'devise', '~> 3.4.1'
 gem 'seed_dump', '~> 3.2.2'
+
+# bootstrap support
+gem 'bootstrap-sass', '~> 3.3.4.1'
