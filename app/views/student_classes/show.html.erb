@@ -2,7 +2,7 @@
 
 <p>
   <strong>Grade level teacher:</strong>
-  <%= @student_class.grade_level_teacher %>
+  <%= @student_class.grade_level_teacher.fullInfo %>
 </p>
 
 <%= link_to 'Edit', edit_student_class_path(@student_class) %> |

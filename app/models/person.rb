@@ -27,6 +27,9 @@ class Person < ActiveRecord::Base
 
     accepts_nested_attributes_for :extension_person
 
+    has_one :class_member
+    has_one :student_class, through: :class_member
+
 
 
     def fullName

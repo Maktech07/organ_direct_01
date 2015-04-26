@@ -42,6 +42,6 @@ class StudentClassesController < ApplicationController
     end
 
     def student_class_params
-      params.require(:student_class).permit(:grade_level_teacher_id)
+      params.require(:student_class).permit(:grade_level_teacher_id, person_ids: [] )
     end
 end
