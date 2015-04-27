@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :families
+
   resources :student_classes
 
   resources :genders
