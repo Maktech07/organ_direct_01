@@ -1,0 +1,21 @@
+{
+  "name": "organ_direct_01",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Maktech07/organ_direct_01",
+  "authors": [
+    "Maktech07 <maktech07@gmail.com>"
+  ],
+  "description": "Organization Directory Managment interface",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ]
+}

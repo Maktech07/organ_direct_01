@@ -8,11 +8,26 @@
 </head>
 <body>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<header >
+    <%= render 'statics/common_links' %><br>
+</header>
 
-<div class="container">
-<%= yield %>
+<div id="sidebar-wrapper" class="col-md-2" style="margin-top: -35px; margin-left: -12px; max-width: 200px;"> 
+    <%= render 'statics/resource_links' %>
+</div>
+
+<div id="main-container" class="container">
+    <div id="main-content" class="col-xs-9">
+        <%= yield %>
+    </div>
+</div>
+
+<div class="row">
+   <div class="col-xs-12">
+          <% flash.each do |name, msg| -%>
+            <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+          <% end -%>
+    </div>
 </div>
 
 </body>
