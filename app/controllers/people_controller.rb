@@ -112,6 +112,10 @@ class PeopleController < ApplicationController
         @department_person = DepartmentPerson.find_or_create_by(person_id: @person.id)
     end
 
+    def set_position_person
+        @position_person = PositionPerson.find_or_create_by(person_id: @person.id)
+    end
+
 
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -120,7 +124,7 @@ class PeopleController < ApplicationController
             # WRONG - SINGULAR HANDLING
         # params.require(:person).permit(:firstName, :lastName, :role_type_ids  )
             # RIGHT - PLURAL HANDLING
-      params.require(:person).permit(:firstName, :lastName ,address_person_attributes: [:id, :person_id, :address_id] ,phone_number_person_attributes: [:id, :person_id, :phone_number_id] ,email_person_attributes: [:id, :person_id, :email_id] ,name_title_person_attributes: [:id, :person_id, :name_title_id], extension_person_attributes: [:id, :person_id, :extension_id] , room_person_attributes: [:id, :person_id, :room_id], department_person_attributes: [:id, :person_id, :department_id], role_type_ids: [] )
+      params.require(:person).permit(:firstName, :lastName ,address_person_attributes: [:id, :person_id, :address_id] ,phone_number_person_attributes: [:id, :person_id, :phone_number_id] ,email_person_attributes: [:id, :person_id, :email_id] ,name_title_person_attributes: [:id, :person_id, :name_title_id], extension_person_attributes: [:id, :person_id, :extension_id] , room_person_attributes: [:id, :person_id, :room_id], department_person_attributes: [:id, :person_id, :department_id], position_person_attributes: [:id, :person_id, :position_id], role_type_ids: [] )
     end
    
   

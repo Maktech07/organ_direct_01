@@ -48,6 +48,10 @@
         selectDepartmentValue  = @person.department.id
     end
 
+    selectPositionValue = 0
+    if @person.position != nil
+        selectPositionValue  = @person.position.id
+    end
 
   %> 
 
@@ -91,18 +95,24 @@
 
  <div class="field">
      <%= f.label :room %><br>
-     <%= f.fields_for :room_person do |em| %>
-         <%= em.collection_select(:room_id, Room.all, :id, :room, { :selected => selectRoomValue, include_blank: true }, { } ) %>
+     <%= f.fields_for :room_person do |rm| %>
+         <%= rm.collection_select(:room_id, Room.all, :id, :room, { :selected => selectRoomValue, include_blank: true }, { } ) %>
+     <% end %>
+  </div>
+
+ <div class="field">
+     <%= f.label :department %><br>
+     <%= f.fields_for :department_person do |dp| %>
+         <%= dp.collection_select(:department_id, Department.all, :id, :name, { :selected => selectDepartmentValue, include_blank: true }, { } ) %>
      <% end %>
   </div>
 
 <div class="field">
-     <%= f.label :department %><br>
-     <%= f.fields_for :department_person do |em| %>
-         <%= em.collection_select(:department_id, Department.all, :id, :name, { :selected => selectDepartmentValue, include_blank: true }, { } ) %>
+     <%= f.label :position %><br>
+     <%= f.fields_for :position do |ps| %>
+         <%= ps.collection_select(:position_id, Position.all, :id, :name, { :selected => selectPositionValue, include_blank: true }, { } ) %>
      <% end %>
   </div>
-
 
 
   <div class="field">
