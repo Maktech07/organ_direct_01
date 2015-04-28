@@ -47,6 +47,15 @@
 </p>
 
 <p>
+  <strong>Gender</strong>
+  <% if @person.gender != nil %>
+    <%= @person.gender.gender %>
+  <% else %>
+    Not Specified
+  <% end %>
+</p>
+
+<p>
   <strong>Room</strong>
   <% if @person.room != nil %>
     <%= @person.room.room %>

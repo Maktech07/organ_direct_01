@@ -47,6 +47,12 @@ class Person < ActiveRecord::Base
 
     accepts_nested_attributes_for :position_person
 
+    has_one :gender_person
+    has_one :gender, through: :gender_person
+
+    accepts_nested_attributes_for :gender_person
+
+
 
     def fullName
         self.firstName + ' ' + self.lastName

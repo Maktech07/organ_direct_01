@@ -53,6 +53,11 @@
         selectPositionValue  = @person.position.id
     end
 
+    selectGenderValue = 0
+    if @person.gender != nil
+        selectGenderValue  = @person.gender.id
+    end
+
   %> 
 
 
@@ -90,6 +95,13 @@
      <%= f.label :email %><br>
      <%= f.fields_for :email_person do |em| %>
          <%= em.collection_select(:email_id, Email.all, :id, :email, { :selected => selectEmailValue, include_blank: true }, { } ) %>
+     <% end %>
+  </div>
+
+<div class="field">
+     <%= f.label :gender %><br>
+     <%= f.fields_for :gender_person do |ge| %>
+         <%= ge.collection_select(:gender_id, Gender.all, :id, :gender, { :selected => selectGenderValue, include_blank: true }, { } ) %>
      <% end %>
   </div>
 

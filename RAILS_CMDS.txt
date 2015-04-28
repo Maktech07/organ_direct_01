@@ -474,6 +474,22 @@ In View
 
 #######################
 
+# Creating the mapping between Gender and Person (is Student) 
+# The relationship is has_one, through from Person to Gender 
+# the JOIN table in the middle.
+
+# Example below shows 
+
+ T>rails g model <JoinTableName> <Resource1>:belongs_to <Resource2>:belongs_to
+ A>rails g model GenderPerson gender:belongs_to person:belongs_to
+
+# Due to generationing new migrations we need to run "bin/rake db:migrate RAILS_ENV=development"
+
+ A>bin/rake db:migrate RAILS_ENV=development
+
+#######################
+
+
 
 
 
