@@ -5,6 +5,7 @@ class PeopleController < ApplicationController
   before_action :set_email_person, only: [:show, :edit, :update, :destroy]
   before_action :set_phone_number_person, only: [:show, :edit, :update, :destroy]
   before_action :set_extension_person, only: [:show, :edit, :update, :destroy]
+  before_action :set_room_person, only: [:show, :edit, :update, :destroy]
 
   # GET /people
   # GET /people.json
@@ -27,6 +28,7 @@ class PeopleController < ApplicationController
     @email_person = @person.build_email_person
     @name_title_person = @person.build_name_title_person
     @extension_person = @person.build_extension_person
+    @room_person = @person.build_room_person
   end
 
   # GET /people/1/edit
@@ -98,6 +100,10 @@ class PeopleController < ApplicationController
 
     def set_email_person
         @email_person = EmailPerson.find_or_create_by(person_id: @person.id)
+    end
+
+    def set_room_person
+        @room_person = roomPerson.find_or_create_by(person_id: @person.id)
     end
 
 

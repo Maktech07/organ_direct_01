@@ -30,7 +30,8 @@ class Person < ActiveRecord::Base
     has_one :class_member
     has_one :student_class, through: :class_member
 
-
+    has_one :room_person
+    has_one :room, through: :room_person
 
     def fullName
         self.firstName + ' ' + self.lastName

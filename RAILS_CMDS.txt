@@ -40,7 +40,6 @@ These are done in order from top to bottom.
 # type of resource be the "ResourceName" holding multiple fields
 # the "ResourceName" should be singular
 #
-# Note: using text here as the end implementation will be PostgreSQL
 
  T>rails g scaffold <ResourceName>> <field1>:<type1> <field2>:<type2>
  A>rails g scaffold Person firstName:text lastName:text
@@ -56,7 +55,6 @@ These are done in order from top to bottom.
 # type of resource be the "ResourceName" holding multiple fields
 # the "ResourceName" should be singular
 #
-# Note: using text here as the end implementation will be PostgreSQL
 
  T>rails g scaffold <ResourceName>> <field1>:<type1> <field2>:<type2>
  A>rails g scaffold RoleType roleName:string 
@@ -87,7 +85,6 @@ These are done in order from top to bottom.
 # type of resource be the "ResourceName" holding multiple fields
 # the "ResourceName" should be singular
 #
-# Note: using text here as the end implementation will be PostgreSQL
 
  T>rails g scaffold <ResourceName>> <field1>:<type1> <field2>:<type2>
  A>rails g scaffold Address streetInfo:text address1:text address2:text city:string state:string zip:string 
@@ -170,7 +167,6 @@ In View
 # type of resource be the "ResourceName" holding multiple fields
 # the "ResourceName" should be singular
 #
-# Note: using text here as the end implementation will be PostgreSQL
 
  T>rails g scaffold <ResourceName>> <field1>:<type1> <field2>:<type2>
  A>rails g scaffold PhoneNumber number:string 
@@ -203,7 +199,6 @@ In View
 # type of resource be the "ResourceName" holding multiple fields
 # the "ResourceName" should be singular
 #
-# Note: using text here as the end implementation will be PostgreSQL
 
  T>rails g scaffold <ResourceName>> <field1>:<type1> <field2>:<type2>
  A>rails g scaffold Email email:string 
@@ -235,7 +230,6 @@ In View
 # type of resource be the "ResourceName" holding multiple fields
 # the "ResourceName" should be singular
 #
-# Note: using text here as the end implementation will be PostgreSQL
 
  T>rails g scaffold <ResourceName>> <field1>:<type1> <field2>:<type2>
  A>rails g scaffold GradeLevel number:integer name:string 
@@ -267,7 +261,6 @@ In View
 # type of resource be the "ResourceName" holding multiple fields
 # the "ResourceName" should be singular
 #
-# Note: using text here as the end implementation will be PostgreSQL
 
  T>rails g scaffold <ResourceName>> <field1>:<type1> <field2>:<type2>
  A>rails g scaffold NameTitle title:string 
@@ -299,7 +292,6 @@ In View
 # type of resource be the "ResourceName" holding multiple fields
 # the "ResourceName" should be singular
 #
-# Note: using text here as the end implementation will be PostgreSQL
 
  T>rails g scaffold <ResourceName>> <field1>:<type1> <field2>:<type2>
  A>rails g scaffold Extension ext:integer 
@@ -331,7 +323,6 @@ In View
 # type of resource be the "ResourceName" holding multiple fields
 # the "ResourceName" should be singular
 #
-# Note: using text here as the end implementation will be PostgreSQL
 
  T>rails g scaffold <ResourceName>> <field1>:<type1> <field2>:<type2>
  A>rails g scaffold Room room:string 
@@ -347,7 +338,6 @@ In View
 # type of resource be the "ResourceName" holding multiple fields
 # the "ResourceName" should be singular
 #
-# Note: using text here as the end implementation will be PostgreSQL
 
  T>rails g scaffold <ResourceName>> <field1>:<type1> <field2>:<type2>
  A>rails g scaffold Position name:string 
@@ -363,7 +353,6 @@ In View
 # type of resource be the "ResourceName" holding multiple fields
 # the "ResourceName" should be singular
 #
-# Note: using text here as the end implementation will be PostgreSQL
 
  T>rails g scaffold <ResourceName>> <field1>:<type1> <field2>:<type2>
  A>rails g scaffold Department name:string 
@@ -379,7 +368,6 @@ In View
 # type of resource be the "ResourceName" holding multiple fields
 # the "ResourceName" should be singular
 #
-# Note: using text here as the end implementation will be PostgreSQL
 
  T>rails g scaffold <ResourceName>> <field1>:<type1> <field2>:<type2>
  A>rails g scaffold Gender gender:string 
@@ -395,7 +383,6 @@ In View
 # type of resource be the "ResourceName" holding multiple fields
 # the "ResourceName" should be singular
 #
-# Note: using text here as the end implementation will be PostgreSQL
 
  T>rails g scaffold <ResourceName>> <field1>:<type1> <field2>:<type2>
  A>rails g scaffold StudentClass grade_level_teacher:belongs_to 
@@ -429,7 +416,6 @@ In View
 # type of resource be the "ResourceName" holding multiple fields
 # the "ResourceName" should be singular
 #
-# Note: using text here as the end implementation will be PostgreSQL
 
  T>rails g scaffold <ResourceName>> <field1>:<type1> <field2>:<type2>
  A>rails g scaffold Family familyName:string 
@@ -439,6 +425,20 @@ In View
  A>bin/rake db:migrate RAILS_ENV=development
 
 #######################
+
+# Creating the mapping between the Room and Person (is Teacher) 
+# The relationship is has_one, through from Person to Room 
+# Each Person can only have zero or one Room
+# the JOIN table in the middle.
+
+# Example below shows 
+
+ T>rails g model <JoinTableName> <Resource1>:belongs_to <Resource2>:belongs_to
+ A>rails g model RoomPerson room:belongs_to person:belongs_to
+
+# Due to generationing new migrations we need to run "bin/rake db:migrate RAILS_ENV=development"
+
+ A>bin/rake db:migrate RAILS_ENV=development
 
 
 

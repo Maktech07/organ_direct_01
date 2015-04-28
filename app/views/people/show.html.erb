@@ -46,6 +46,15 @@
   <% end %>
 </p>
 
+<p>
+  <strong>Room</strong>
+  <% if @person.room != nil %>
+    <%= @person.room.room %>
+  <% else %>
+    None
+  <% end %>
+</p>
+
 
 <p>
 <strong>Role Types</strong><br>

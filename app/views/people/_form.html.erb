@@ -38,6 +38,12 @@
         selectExtValue  = @person.extension.id
     end
 
+    selectRoomValue = 0
+    if @person.room != nil
+        selectRoomValue  = @person.room.id
+    end
+
+
   %> 
 
 
@@ -77,6 +83,14 @@
          <%= em.collection_select(:email_id, Email.all, :id, :email, { :selected => selectEmailValue, include_blank: true }, { } ) %>
      <% end %>
   </div>
+
+ <div class="field">
+     <%= f.label :room %><br>
+     <%= f.fields_for :room_person do |em| %>
+         <%= em.collection_select(:room_id, Room.all, :id, :room, { :selected => selectRoomValue, include_blank: true }, { } ) %>
+     <% end %>
+  </div>
+
 
 
   <div class="field">
