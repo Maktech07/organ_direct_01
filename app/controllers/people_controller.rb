@@ -6,6 +6,7 @@ class PeopleController < ApplicationController
   before_action :set_phone_number_person, only: [:show, :edit, :update, :destroy]
   before_action :set_extension_person, only: [:show, :edit, :update, :destroy]
   before_action :set_room_person, only: [:show, :edit, :update, :destroy]
+  before_action :set_department_person, only: [:show, :edit, :update, :destroy]
 
   # GET /people
   # GET /people.json
@@ -29,6 +30,7 @@ class PeopleController < ApplicationController
     @name_title_person = @person.build_name_title_person
     @extension_person = @person.build_extension_person
     @room_person = @person.build_room_person
+    @department_person = @person.build_department_person
   end
 
   # GET /people/1/edit
@@ -103,7 +105,11 @@ class PeopleController < ApplicationController
     end
 
     def set_room_person
-        @room_person = roomPerson.find_or_create_by(person_id: @person.id)
+        @room_person = RoomPerson.find_or_create_by(person_id: @person.id)
+    end
+
+    def set_department_person
+        @department_person = DepartmentPerson.find_or_create_by(person_id: @person.id)
     end
 
 
@@ -114,7 +120,7 @@ class PeopleController < ApplicationController
             # WRONG - SINGULAR HANDLING
         # params.require(:person).permit(:firstName, :lastName, :role_type_ids  )
             # RIGHT - PLURAL HANDLING
-      params.require(:person).permit(:firstName, :lastName ,address_person_attributes: [:id, :person_id, :address_id] ,phone_number_person_attributes: [:id, :person_id, :phone_number_id] ,email_person_attributes: [:id, :person_id, :email_id] ,name_title_person_attributes: [:id, :person_id, :name_title_id], extension_person_attributes: [:id, :person_id, :extension_id] ,role_type_ids: [] )
+      params.require(:person).permit(:firstName, :lastName ,address_person_attributes: [:id, :person_id, :address_id] ,phone_number_person_attributes: [:id, :person_id, :phone_number_id] ,email_person_attributes: [:id, :person_id, :email_id] ,name_title_person_attributes: [:id, :person_id, :name_title_id], extension_person_attributes: [:id, :person_id, :extension_id] , room_person_attributes: [:id, :person_id, :room_id], department_person_attributes: [:id, :person_id, :department_id], role_type_ids: [] )
     end
    
   

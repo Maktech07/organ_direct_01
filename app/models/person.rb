@@ -30,8 +30,17 @@ class Person < ActiveRecord::Base
     has_one :class_member
     has_one :student_class, through: :class_member
 
+    accepts_nested_attributes_for :class_member
+
     has_one :room_person
     has_one :room, through: :room_person
+
+    accepts_nested_attributes_for :room_person
+
+    has_one :department_person
+    has_one :department, through: :department_person
+
+    accepts_nested_attributes_for :department_person
 
     def fullName
         self.firstName + ' ' + self.lastName

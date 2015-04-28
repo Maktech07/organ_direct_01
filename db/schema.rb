@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150427131133) do
+ActiveRecord::Schema.define(version: 20150428052543) do
 
   create_table "address_people", force: true do |t|
     t.integer  "person_id"
@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 20150427131133) do
 
   add_index "class_members", ["person_id"], name: "index_class_members_on_person_id"
   add_index "class_members", ["student_class_id"], name: "index_class_members_on_student_class_id"
+
+  create_table "department_people", force: true do |t|
+    t.integer  "department_id"
+    t.integer  "person_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "department_people", ["department_id"], name: "index_department_people_on_department_id"
+  add_index "department_people", ["person_id"], name: "index_department_people_on_person_id"
 
   create_table "departments", force: true do |t|
     t.string   "name"

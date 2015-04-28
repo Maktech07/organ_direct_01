@@ -43,6 +43,11 @@
         selectRoomValue  = @person.room.id
     end
 
+    selectDepartmentValue = 0
+    if @person.department != nil
+        selectDepartmentValue  = @person.department.id
+    end
+
 
   %> 
 
@@ -88,6 +93,13 @@
      <%= f.label :room %><br>
      <%= f.fields_for :room_person do |em| %>
          <%= em.collection_select(:room_id, Room.all, :id, :room, { :selected => selectRoomValue, include_blank: true }, { } ) %>
+     <% end %>
+  </div>
+
+<div class="field">
+     <%= f.label :department %><br>
+     <%= f.fields_for :department_person do |em| %>
+         <%= em.collection_select(:department_id, Department.all, :id, :name, { :selected => selectDepartmentValue, include_blank: true }, { } ) %>
      <% end %>
   </div>
 
