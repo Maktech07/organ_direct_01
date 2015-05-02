@@ -16,3 +16,19 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+/*
+    overrides of bootstrap
+*/
+.navbar {
+    margin-bottom: 0;
+}
+
+.navbar-default {
+    margin-bottom: 0;
+}
+
+.sm-top-margin {
+    margin-top: 5px;
+}
+

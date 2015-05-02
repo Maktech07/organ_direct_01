@@ -8,16 +8,15 @@
 </head>
 <body>
 
-<header >
-    <%= render 'statics/common_links' %><br>
-</header>
+<%= render 'statics/common_links' %>
 
-<div id="sidebar-wrapper" class="col-md-2" style="margin-top: -35px; margin-left: -12px; max-width: 200px;"> 
+
+<div id="sidebar-wrapper" class="col-md-2 sm-top-margin"> 
     <%= render 'statics/resource_links' %>
 </div>
 
-<div id="main-container" class="container">
-    <div id="main-content" class="col-xs-9">
+<div id="main-container" class="container"> 
+    <div id="main-content" class="col-md-9" > 
         <%= yield %>
     </div>
 </div>

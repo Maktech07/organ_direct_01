@@ -14,6 +14,7 @@ class FamiliesController < ApplicationController
 
   def new
     @family = Family.new
+    @family_parents = @family.family_parents.build
     respond_with(@family)
   end
 
@@ -42,6 +43,6 @@ class FamiliesController < ApplicationController
     end
 
     def family_params
-      params.require(:family).permit(:familyName)
+      params.require(:family).permit(:familyName, family_parent_attributes: [ :id, :family_id, :person_id] )
     end
 end

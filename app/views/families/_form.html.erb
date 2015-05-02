@@ -15,6 +15,21 @@
     <%= f.label :familyName %><br>
     <%= f.text_field :familyName %>
   </div>
+
+  <%
+    selectedParents = 0
+  %>
+
+
+ <div class="field">
+     Parents<br>
+     <%= f.fields_for :family_parent do |fp| %>
+         <%= fp.collection_select(:person_id, Person.joins(:role_types).where(role_types: {roleName: 'Parent'}), :id, :fullName, { :selected => selectedParents, include_blank: true }, { :multiple => true } ) %>
+     <% end %>
+  </div>
+
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
