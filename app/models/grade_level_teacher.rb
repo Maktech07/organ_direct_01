@@ -1,6 +1,6 @@
 class GradeLevelTeacher < ActiveRecord::Base
   belongs_to :grade_level
-  belongs_to :person
+  belongs_to :teacher, :class_name => "Person", :foreign_key => "teacher_id"
 
   def fullInfo
      gradeString = "No Grade"
@@ -14,9 +14,9 @@ class GradeLevelTeacher < ActiveRecord::Base
      end
 
      if self.person_id != nil
-         teacher = Person.find(self.person_id)
-         if teacher != nil
-             teacherString = teacher.lastName
+         teacherObj = Person.find(self.person_id)
+         if teacherObj != nil
+             teacherString = teacherObj.lastName
          end
      end
 
