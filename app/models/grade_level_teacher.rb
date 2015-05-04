@@ -13,8 +13,8 @@ class GradeLevelTeacher < ActiveRecord::Base
         end
      end
 
-     if self.person_id != nil
-         teacherObj = Person.find(self.person_id)
+     if self.teacher_id != nil
+         teacherObj = Person.find(self.teacher_id)
          if teacherObj != nil
              teacherString = teacherObj.lastName
          end

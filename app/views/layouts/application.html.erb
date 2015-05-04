@@ -8,12 +8,14 @@
 </head>
 <body>
 
-<%= render 'statics/common_links' %>
 
+<%= render 'statics/common_links' %>
 
 <div id="sidebar-wrapper" class="col-md-2 sm-top-margin"> 
     <%= render 'statics/resource_links' %>
 </div>
+
+
 
 <div id="main-container" class="container"> 
     <div id="main-content" class="col-md-9" > 
@@ -22,12 +24,13 @@
 </div>
 
 <div class="row">
-   <div class="col-xs-12">
-          <% flash.each do |name, msg| -%>
-            <%= content_tag :div, msg, class: "alert alert-#{name}" %>
-          <% end -%>
+    <div class="col-xs-9">
+            <% flash.each do |name, msg| -%>
+            <%= content_tag :div, msg, class: "alert alert-info" %>
+            <% end -%>
     </div>
 </div>
+
 
 </body>
 </html>

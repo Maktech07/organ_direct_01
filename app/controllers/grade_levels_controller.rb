@@ -46,6 +46,6 @@ class GradeLevelsController < ApplicationController
     end
 
     def grade_level_params
-      params.require(:grade_level).permit(:number, :name, :grade_level, grade_level_teacher_attributes: [:id, :grade_level_id, :person_id])
+      params.require(:grade_level).permit(:number, :name, :grade_level, teacher_ids: [], grade_level_teacher_attributes: [:id, :grade_level_id, :teacher_id])
     end
 end

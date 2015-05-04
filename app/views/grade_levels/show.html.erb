@@ -12,8 +12,8 @@
 
 <p>
   <strong>Teachers:</strong>
-  <% if @grade_level.people != nil %>
-     <%= @grade_level.people.map(&:fullName).join(', ') %></td>
+  <% if @grade_level.teachers != nil %>
+     <%= @grade_level.teachers.map(&:fullName).join(', ') %></td>
   <% else %>
       None
   <% end %>

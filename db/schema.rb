@@ -126,13 +126,13 @@ ActiveRecord::Schema.define(version: 20150429130032) do
 
   create_table "grade_level_teachers", force: true do |t|
     t.integer  "grade_level_id"
-    t.integer  "person_id"
+    t.integer  "teacher_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "grade_level_teachers", ["grade_level_id"], name: "index_grade_level_teachers_on_grade_level_id"
-  add_index "grade_level_teachers", ["person_id"], name: "index_grade_level_teachers_on_person_id"
+  add_index "grade_level_teachers", ["teacher_id"], name: "index_grade_level_teachers_on_teacher_id"
 
   create_table "grade_levels", force: true do |t|
     t.integer  "number"

@@ -26,8 +26,8 @@
 
      <%   Person.joins(:role_types).where(role_types: {roleName: 'Teacher'}).each do |teacher| -%>
     <div>
-        <%= check_box_tag :people_controller_ids, teacher.id, @grade_level.people.include?(teacher), :name => 'grade_level[person_ids][]' %>
-      <%= label_tag :person_ids, teacher.fullName -%>
+        <%= check_box_tag :people_controller_ids, teacher.id, @grade_level.teachers.include?(teacher), :name => 'grade_level[teacher_ids][]' %>
+      <%= label_tag :teacher_ids, teacher.fullName -%>
     </div>
   <% end -%>
   </div>
