@@ -20,9 +20,14 @@
     <% else %>
         <td>None</td>
     <% end %>
-        <td><%= link_to 'Show', grade_level %></td>
-        <td><%= link_to 'Edit', edit_grade_level_path(grade_level) %></td>
-        <td><%= link_to 'Destroy', grade_level, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <td>
+            <div>
+                <%= link_to '', grade_level, class: "btn show-btn glyphicon glyphicon-eye-open", title: "Show" %>
+                <%= link_to '', edit_grade_level_path(grade_level), class: "btn edit-btn glyphicon glyphicon-pencil", title: "Edit" %>
+                <%= link_to '', grade_level, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn destroy-btn glyphicon glyphicon-remove-sign", title: "Delete" %>
+            </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +35,4 @@
 
 <br>
 
-<%= link_to '', new_grade_level_path, class: "btn btn-success glyphicon glyphicon-plus" %> &nbsp; Add New Grade Level
+<%= link_to '', new_grade_level_path, class: "btn add-new-btn glyphicon glyphicon-plus" %> &nbsp; Add New Grade Level

@@ -12,14 +12,20 @@
     <% @role_types.each do |role_type| %>
       <tr>
         <td><%= role_type.roleName %></td>
-        <td><%= link_to 'Show', role_type %></td>
-        <td><%= link_to 'Edit', edit_role_type_path(role_type) %></td>
-        <td><%= link_to 'Destroy', role_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <td>
+            <div>
+                <%= link_to '', role_type, class: "btn show-btn glyphicon glyphicon-eye-open", title: "Show" %>
+                <%= link_to '', edit_role_type_path(role_type), class: "btn edit-btn glyphicon glyphicon-pencil", title: "Edit" %>
+                <%= link_to '', role_type, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn destroy-btn glyphicon glyphicon-remove-sign", title: "Delete" %>
+            </div>
+        </td>
       </tr>
+
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to '', new_role_type_path, class: "btn btn-success glyphicon glyphicon-plus" %> &nbsp; Add New Role Type 
+<%= link_to '', new_role_type_path, class: "btn add-new-btn glyphicon glyphicon-plus" %> &nbsp; Add New Role Type 

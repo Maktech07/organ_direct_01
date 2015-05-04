@@ -12,9 +12,13 @@
     <% @genders.each do |gender| %>
       <tr>
         <td><%= gender.gender %></td>
-        <td><%= link_to 'Show', gender %></td>
-        <td><%= link_to 'Edit', edit_gender_path(gender) %></td>
-        <td><%= link_to 'Destroy', gender, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+            <div>
+                <%= link_to '', gender, class: "btn show-btn glyphicon glyphicon-eye-open", title: "Show" %>
+                <%= link_to '', edit_gender_path(gender), class: "btn edit-btn glyphicon glyphicon-pencil", title: "Edit" %>
+                <%= link_to '', gender, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn destroy-btn glyphicon glyphicon-remove-sign", title: "Delete" %>
+            </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +26,4 @@
 
 <br>
 
-<%= link_to '', new_gender_path, class: "btn btn-success glyphicon glyphicon-plus" %> &nbsp; Add New Gender
+<%= link_to '', new_gender_path, class: "btn add-new-btn glyphicon glyphicon-plus" %> &nbsp; Add New Gender

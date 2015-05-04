@@ -22,9 +22,14 @@
         <td><%= address.city %></td>
         <td><%= address.state %></td>
         <td><%= address.zip %></td>
-        <td><%= link_to 'Show',  address, class: "btn btn-primary" %></td>
-        <td><%= link_to 'Edit', edit_address_path(address), class: "btn btn-info" %></td>
-        <td><%= link_to 'Destroy', address, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        <td>
+            <div>
+                <%= link_to '', address, class: "btn show-btn glyphicon glyphicon-eye-open", title: "Show" %>
+                <%= link_to '', edit_address_path(address), class: "btn edit-btn glyphicon glyphicon-pencil", title: "Edit" %>
+                <%= link_to '', address, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn destroy-btn glyphicon glyphicon-remove-sign", title: "Delete" %>
+            </div>
+        </td>
+
       </tr>
     <% end %>
   </tbody>

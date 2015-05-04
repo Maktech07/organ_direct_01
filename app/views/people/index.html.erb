@@ -52,9 +52,13 @@
                 <%= person.extension.ext %>
             <% end %>
         </td>
-        <td><%= link_to 'Show', person %></td>
-        <td><%= link_to 'Edit', edit_person_path(person) %></td>
-        <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+            <div>
+                <%= link_to '', person, class: "btn show-btn glyphicon glyphicon-eye-open", title: "Show" %>
+                <%= link_to '', edit_person_path(person), class: "btn edit-btn glyphicon glyphicon-pencil", title: "Edit" %>
+                <%= link_to '', person, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn destroy-btn glyphicon glyphicon-remove-sign", title: "Delete" %>
+            </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -62,5 +66,6 @@
 
 <br>
 
-<%= link_to 'New Person', new_person_path %>
+
+<%= link_to '', new_person_path, class: "btn add-new-btn glyphicon glyphicon-plus" %> &nbsp; Add New Person 
 

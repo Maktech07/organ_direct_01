@@ -12,9 +12,14 @@
     <% @name_titles.each do |name_title| %>
       <tr>
         <td><%= name_title.title %></td>
-        <td><%= link_to 'Show', name_title %></td>
-        <td><%= link_to 'Edit', edit_name_title_path(name_title) %></td>
-        <td><%= link_to 'Destroy', name_title, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <td>
+            <div>
+                <%= link_to '', name_title, class: "btn show-btn glyphicon glyphicon-eye-open", title: "Show" %>
+                <%= link_to '', edit_name_title_path(name_title), class: "btn edit-btn glyphicon glyphicon-pencil", title: "Edit" %>
+                <%= link_to '', name_title, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn destroy-btn glyphicon glyphicon-remove-sign", title: "Delete" %>
+            </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +27,4 @@
 
 <br>
 
-<%= link_to '', new_name_title_path, class: "btn btn-success glyphicon glyphicon-plus" %> &nbsp; Add New Name Title
+<%= link_to '', new_name_title_path, class: "btn add-new-btn glyphicon glyphicon-plus" %> &nbsp; Add New Name Title
