@@ -9,6 +9,7 @@ class PeopleController < ApplicationController
   before_action :set_department_person, only: [:show, :edit, :update, :destroy]
   before_action :set_position_person, only: [:show, :edit, :update, :destroy]
   before_action :set_gender_person, only: [:show, :edit, :update, :destroy]
+  before_action :set_person_roles, only: [:show, :edit, :update, :destroy]
 
   # GET /people
   # GET /people.json
@@ -26,6 +27,7 @@ class PeopleController < ApplicationController
   def new
     puts "NEW PEOPLE CALLED"
     @person = Person.new
+    @person_role_types = @person.person_role_types.build
     @address_person = @person.build_address_person
     @phone_number_person = @person.build_phone_number_person
     @email_person = @person.build_email_person
@@ -49,6 +51,12 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       if @person.save
+
+        role_ids = params[ :person_role_types ]
+        role_ids.each do |rid|
+            @person.person_role_types.create( :role_type_id => rid ) 
+        end
+
         format.html { redirect_to @person, notice: 'Person was successfully created.' }
         format.json { render :show, status: :created, location: @person }
       else
@@ -124,7 +132,9 @@ class PeopleController < ApplicationController
         @gender_person = GenderPerson.find_or_create_by(person_id: @person.id)
     end
 
-
+    def set_person_roles
+        @person_role_types = PersonRoleType.where(person_id: @person.id)
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
@@ -132,7 +142,11 @@ class PeopleController < ApplicationController
             # WRONG - SINGULAR HANDLING
         # params.require(:person).permit(:firstName, :lastName, :role_type_ids  )
             # RIGHT - PLURAL HANDLING
-      params.require(:person).permit(:firstName, :lastName ,address_person_attributes: [:id, :person_id, :address_id] ,phone_number_person_attributes: [:id, :person_id, :phone_number_id] ,email_person_attributes: [:id, :person_id, :email_id] ,name_title_person_attributes: [:id, :person_id, :name_title_id], extension_person_attributes: [:id, :person_id, :extension_id] , room_person_attributes: [:id, :person_id, :room_id], department_person_attributes: [:id, :person_id, :department_id], gender_person_attributes: [:id, :person_id, :gender_id] , gender_person_attributes: [:id, :person_id, :gender_id], role_type_ids: [] )
+      params.require(:person).permit(:firstName, :lastName ,address_person_attributes: [:id, :person_id, :address_id] ,phone_number_person_attributes: [:id, :person_id, :phone_number_id] ,email_person_attributes: [:id, :person_id, :email_id] ,name_title_person_attributes: [:id, :person_id, :name_title_id], extension_person_attributes: [:id, :person_id, :extension_id] , room_person_attributes: [:id, :person_id, :room_id], department_person_attributes: [:id, :person_id, :department_id], gender_person_attributes: [:id, :person_id, :gender_id] , gender_person_attributes: [:id, :person_id, :gender_id], role_types: []) 
+    end
+
+    def person_role_type_params
+        params.require(:person_role_types)
     end
    
   

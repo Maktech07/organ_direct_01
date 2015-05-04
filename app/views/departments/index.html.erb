@@ -11,10 +11,10 @@
   <tbody>
     <% @departments.each do |department| %>
       <tr>
-        <td><%= department.name %></td>
-        <td><%= link_to 'Show', department, class: "btn btn-primary" %></td>
-        <td><%= link_to 'Edit', edit_department_path(department), class: "btn btn-info" %></td>
-        <td><%= link_to 'Destroy', department, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+          <td><div class="h4"><%= department.name %></div></td>
+        <td><%= link_to 'Show', department, class: "btn btn-primary" %>
+        <%= link_to 'Edit', edit_department_path(department), class: "btn btn-info" %>
+        <%= link_to 'Destroy', department, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Department', new_department_path, class: "btn btn-success" %>
+<%= link_to '', new_department_path, class: "btn btn-success glyphicon glyphicon-plus" %> &nbsp; Add New Department

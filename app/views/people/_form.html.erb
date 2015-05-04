@@ -58,6 +58,13 @@
         selectGenderValue  = @person.gender.id
     end
 
+    selectedRoleTypes = []
+
+    roleTypeRows = PersonRoleType.where(:person_id => @person.id)
+    roleTypeRows.each do |rtr|
+        selectedRoleTypes.push(rtr.role_type_id)
+    end
+
   %> 
 
 
@@ -73,10 +80,12 @@
     <%= f.label :firstName %><br>
     <%= f.text_field :firstName %>
   </div>
+
   <div class="field">
     <%= f.label :lastName %><br>
     <%= f.text_field :lastName %>
   </div>
+
  <div class="field">
      <%= f.label :address %><br>
      <%= f.fields_for :address_person do |ap| %>
@@ -119,23 +128,19 @@
      <% end %>
   </div>
 
-<div class="field">
+ <div class="field">
      <%= f.label :position %><br>
      <%= f.fields_for :position do |ps| %>
          <%= ps.collection_select(:position_id, Position.all, :id, :name, { :selected => selectPositionValue, include_blank: true }, { } ) %>
      <% end %>
   </div>
 
+ <div class="field">
+     <%= f.label :role_types %>
+     <%= select_tag 'person_role_types[]', options_from_collection_for_select(RoleType.all, :id, :roleName, selectedRoleTypes), multiple: true, size: '10%', id: 'testlist' %>
+</div>
 
-  <div class="field">
-    <%= f.label :role_types %><br>
-
-   <% RoleType.all.each do |roleType| -%>
-    <div>
-        <%= check_box_tag :role_types_controller_ids, roleType.id, @person.role_types.include?(roleType), :name => 'person[role_type_ids][]' %>
-      <%= label_tag :role_type_ids, roleType.roleName -%>
-    </div>
-  <% end -%>
+ <script> gen_duallistbox('#testlist'); </script>
 
  <div class="field">
      <%= f.label :extension %><br>
@@ -144,8 +149,6 @@
      <% end %>
   </div>
 
-
-  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
