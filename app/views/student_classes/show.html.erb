@@ -5,5 +5,7 @@
   <%= @student_class.grade_level_teacher.fullInfo %>
 </p>
 
-<%= link_to 'Edit', edit_student_class_path(@student_class) %> |
-<%= link_to 'Back', student_classes_path %>
+
+<%= link_to '', student_classes_path, class: "btn back-btn glyphicon glyphicon-arrow-left", title: "Back" %> &nbsp; Back &nbsp;   
+<%= link_to '', edit_student_class_path(@student_class), class: "btn edit-btn glyphicon glyphicon-pencil", title: "Edit" %> &nbsp; Edit &nbsp; 
+

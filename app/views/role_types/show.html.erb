@@ -5,5 +5,6 @@
   <%= @role_type.roleName %>
 </p>
 
-<%= link_to 'Edit', edit_role_type_path(@role_type) %> |
-<%= link_to 'Back', role_types_path %>
+<%= link_to '', role_types_path, class: "btn back-btn glyphicon glyphicon-arrow-left", title: "Back" %> &nbsp; Back &nbsp;   
+<%= link_to '', edit_role_type_path(@role_type), class: "btn edit-btn glyphicon glyphicon-pencil", title: "Edit" %> &nbsp; Edit &nbsp; 
+

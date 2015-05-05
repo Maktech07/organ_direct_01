@@ -135,9 +135,13 @@
      <% end %>
   </div>
 
+  <div class="row">
+<div class="col-xs-5">
  <div class="field">
      <%= f.label :role_types %>
      <%= select_tag 'person_role_types[]', options_from_collection_for_select(RoleType.all, :id, :roleName, selectedRoleTypes), multiple: true, size: '10%', id: 'testlist' %>
+</div>
+</div>
 </div>
 
  <script> gen_duallistbox('#testlist'); </script>

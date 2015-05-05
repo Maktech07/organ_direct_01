@@ -5,5 +5,8 @@
   <%= @gender.gender %>
 </p>
 
-<%= link_to 'Edit', edit_gender_path(@gender) %> |
-<%= link_to 'Back', genders_path %>
+
+<%= link_to '', genders_path, class: "btn back-btn glyphicon glyphicon-arrow-left", title: "Back" %> &nbsp; Back &nbsp;   
+<%= link_to '', edit_gender_path(@gender), class: "btn edit-btn glyphicon glyphicon-pencil", title: "Edit" %> &nbsp; Edit &nbsp; 
+
+

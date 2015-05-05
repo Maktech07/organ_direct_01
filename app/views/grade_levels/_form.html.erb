@@ -30,16 +30,21 @@
     <%= f.text_field :name %>
   </div>
 
-
- <div class="field">
+  <div class="row">
+    <div class="field">
      <%= f.label "Teachers" %><br>
 
+     <div class="col-xs-5">
      <%= select_tag 'grade_level[teacher_ids][]', options_from_collection_for_select( Person.joins(:role_types).where(role_types: {roleName: 'Teacher'}), :id, :fullName, selectedTeachers), multiple: true, size: '10%', id: 'teacherlist' %>
      <script> gen_duallistbox('#teacherlist'); </script>
-
-  </div>
-
+    </div>
+ </div>
+ </div>
+    
+ <br>
+ <div class="row">
   <div class="actions">
-    <%= f.submit %>
+     <%= f.submit %>
+  </div>
   </div>
 <% end %>

@@ -5,5 +5,9 @@
   <%= @extension.ext %>
 </p>
 
-<%= link_to 'Edit', edit_extension_path(@extension) %> |
-<%= link_to 'Back', extensions_path %>
+
+<%= link_to '', extensions_path, class: "btn back-btn glyphicon glyphicon-arrow-left", title: "Back" %> &nbsp; Back &nbsp;   
+<%= link_to '', edit_extension_path(@extension), class: "btn edit-btn glyphicon glyphicon-pencil", title: "Edit" %> &nbsp; Edit &nbsp; 
+
+
+

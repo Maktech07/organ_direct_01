@@ -2,5 +2,7 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @student_class %> |
-<%= link_to 'Back', student_classes_path %>
+
+<%= link_to '', student_classes_path, class: "btn back-btn glyphicon glyphicon-arrow-left", title: "Back" %> &nbsp; Back &nbsp;   
+<%= link_to '', @student_class, class: "btn show-btn glyphicon glyphicon-eye-open", title: "Show" %> &nbsp; Show &nbsp;  
+

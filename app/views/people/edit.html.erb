@@ -2,5 +2,7 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @person %> |
-<%= link_to 'Back', people_path %>
+
+<%= link_to '', people_path, class: "btn back-btn glyphicon glyphicon-arrow-left", title: "Back" %> &nbsp; Back &nbsp;   
+<%= link_to '', @person, class: "btn show-btn glyphicon glyphicon-eye-open", title: "Show" %> &nbsp; Show &nbsp;  
+
