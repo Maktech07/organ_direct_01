@@ -1,194 +1,155 @@
 Address.create!([
-  {streetInfo: "1800 Briarcliffe Blvd", additional1: nil, additional2: nil, city: "Wheaton", state: "IL", zip: "60189"},
-  {streetInfo: "1633 Leytonstone Dr", additional1: "", additional2: "", city: "Wheaton", state: "IL", zip: "60189"},
-  {streetInfo: "134 Briarcliffe Rd", additional1: "", additional2: "", city: "Wheaton", state: "IL", zip: "60189"},
-  {streetInfo: "930 Clock Lane", additional1: "", additional2: "", city: "Glen Ellyn", state: "IL", zip: "60186"}
+  {streetInfo: "1633 Leytonstone Dr", additional1: "", additional2: "", city: "Wheaton", state: "IL", zip: "60189"}
 ])
 AddressPerson.create!([
-  {person_id: 1, address_id: 2},
-  {person_id: 2, address_id: 2},
-  {person_id: 3, address_id: 2},
-  {person_id: 4, address_id: 1},
-  {person_id: 5, address_id: 1},
-  {person_id: 6, address_id: 4},
-  {person_id: 7, address_id: 4},
-  {person_id: 8, address_id: nil},
-  {person_id: 9, address_id: 1},
-  {person_id: 10, address_id: 1},
-  {person_id: 11, address_id: 1},
-  {person_id: 12, address_id: 1}
+  {person_id: 1, address_id: nil},
+  {person_id: 2, address_id: nil},
+  {person_id: 3, address_id: nil},
+  {person_id: 4, address_id: nil},
+  {person_id: 5, address_id: nil},
+  {person_id: 6, address_id: nil},
+  {person_id: 7, address_id: nil},
+  {person_id: 8, address_id: nil}
 ])
-Email.create!([
-  {email: "mattknowles7@hotmail.com"},
-  {email: "sknowles27@hotmail.com"},
-  {email: "principal@briarglenn.edu"},
-  {email: "weldon@yahoo.com"},
-  {email: "mromano@ccsd89.org"},
-  {email: "abostrand@ccsd89.org"},
-  {email: "mgower@ccsd89.org"},
-  {email: "glydon@ccsd89.org"},
-  {email: "sbarth@ccsd89.org"},
-  {email: "rclementi@ccsd89.org"},
-  {email: "vhsu@ccsd89.org"},
-  {email: "vfaust@ccsd89.org"},
-  {email: "rhughes@ccsd89.org"},
-  {email: "lperlini@ccsd89.org"},
-  {email: "ericci@ccsd89.org"},
-  {email: "kladuca@ccsd89.org"},
-  {email: "mbudz@ccsd89.org"},
-  {email: "eshields@ccsd89.org"},
+Department.create!([
+  {name: "Art"}
+])
+DepartmentPerson.create!([
+  {department_id: nil, person_id: 1},
+  {department_id: nil, person_id: 2},
+  {department_id: nil, person_id: 3},
+  {department_id: nil, person_id: 4},
+  {department_id: nil, person_id: 5},
+  {department_id: nil, person_id: 6},
+  {department_id: nil, person_id: 7},
+  {department_id: nil, person_id: 8}
 ])
 EmailPerson.create!([
-  {person_id: nil, email_id: 1},
-  {person_id: nil, email_id: 3},
-  {person_id: 2, email_id: 2},
-  {person_id: nil, email_id: nil},
-  {person_id: nil, email_id: nil},
-  {person_id: nil, email_id: nil},
-  {person_id: nil, email_id: nil},
+  {person_id: 1, email_id: nil},
+  {person_id: 2, email_id: nil},
+  {person_id: 3, email_id: nil},
   {person_id: 4, email_id: nil},
-  {person_id: nil, email_id: nil},
-  {person_id: nil, email_id: nil},
-  {person_id: nil, email_id: nil},
-  {person_id: nil, email_id: nil},
-  {person_id: nil, email_id: nil},
-  {person_id: nil, email_id: nil},
-  {person_id: 8, email_id: 4},
-  {person_id: nil, email_id: 6},
-  {person_id: 5, email_id: 5},
-  {person_id: nil, email_id: nil},
-  {person_id: 9, email_id: 6},
-  {person_id: 10, email_id: 7},
-  {person_id: 11, email_id: 8},
-  {person_id: 12, email_id: 9}
+  {person_id: 5, email_id: nil},
+  {person_id: 6, email_id: nil},
+  {person_id: 7, email_id: nil},
+  {person_id: 8, email_id: nil}
 ])
 Extension.create!([
-  {ext: 3300},
-  {ext: 3305},
-  {ext: 3317},
-  {ext: 3309},
-  {ext: 3314},
-  {ext: 3324},
-  {ext: 3325},
-  {ext: 3311},
-  {ext: 3312},
-  {ext: 3313},
-  {ext: 3307},
-  {ext: 3326},
-  {ext: 3328},
-  {ext: 3320},
-  {ext: 3323},
-  {ext: 3318}
+  {ext: 1393}
+])
+ExtensionPerson.create!([
+  {extension_id: nil, person_id: 1},
+  {extension_id: nil, person_id: 2},
+  {extension_id: nil, person_id: 3},
+  {extension_id: nil, person_id: 4},
+  {extension_id: nil, person_id: 5},
+  {extension_id: nil, person_id: 6},
+  {extension_id: nil, person_id: 7},
+  {extension_id: nil, person_id: 8}
+])
+Gender.create!([
+  {gender: "Female"},
+  {gender: "Male"}
+])
+GenderPerson.create!([
+  {gender_id: nil, person_id: 1},
+  {gender_id: nil, person_id: 2},
+  {gender_id: nil, person_id: 3},
+  {gender_id: nil, person_id: 4},
+  {gender_id: 2, person_id: 5},
+  {gender_id: 2, person_id: 6},
+  {gender_id: nil, person_id: 7},
+  {gender_id: nil, person_id: 8}
 ])
 GradeLevel.create!([
   {number: 0, name: "KindergartenAM"},
-  {number: 1, name: "First Grade"},
-  {number: 2, name: "Second Grade"},
-  {number: 3, name: "Third Grade"},
-  {number: 4, name: "Fourth Grade"},
-  {number: 5, name: "Fifth Grade"},
   {number: 0, name: "KindergartenPM"},
-  {number: nil, name: "GIP Primary"},
-  {number: nil, name: "GIP Structured"},
-  {number: nil, name: "Structured Intermediate"}
+  {number: 1, name: "1st Grade"}
 ])
 GradeLevelTeacher.create!([
-  {grade_level_id: nil, person_id: 5},
-  {grade_level_id: 1, person_id: 5},
-  {grade_level_id: 2, person_id: 8}
+  {grade_level_id: 1, teacher_id: 1},
+  {grade_level_id: 2, teacher_id: 1},
+  {grade_level_id: 3, teacher_id: 3},
+  {grade_level_id: 3, teacher_id: 2}
 ])
 NameTitle.create!([
-  {title: "Mr."},
+  {title: "Mrs."},
   {title: "Ms."},
-  {title: "Mrs."}
+  {title: "Mr."}
 ])
 NameTitlePerson.create!([
+  {name_title_id: 1, person_id: 1},
+  {name_title_id: 1, person_id: 2},
+  {name_title_id: 1, person_id: 3},
   {name_title_id: 1, person_id: 4},
-  {name_title_id: 3, person_id: nil},
-  {name_title_id: 1, person_id: nil},
-  {name_title_id: 3, person_id: nil},
-  {name_title_id: 3, person_id: nil},
-  {name_title_id: 3, person_id: nil},
-  {name_title_id: 3, person_id: nil},
-  {name_title_id: nil, person_id: 8},
-  {name_title_id: nil, person_id: nil},
   {name_title_id: nil, person_id: 5},
-  {name_title_id: 3, person_id: nil},
-  {name_title_id: 3, person_id: 9},
-  {name_title_id: 3, person_id: 10},
-  {name_title_id: 3, person_id: 11},
-  {name_title_id: 3, person_id: 12}
+  {name_title_id: nil, person_id: 6},
+  {name_title_id: nil, person_id: 7},
+  {name_title_id: nil, person_id: 8}
 ])
 Person.create!([
-  {firstName: "Matt", lastName: "Knows"},
-  {firstName: "Stephanie", lastName: "Knows"},
-  {firstName: "Lily", lastName: "Knows"},
-  {firstName: "Mitch", lastName: "Dubinski"},
   {firstName: "Maureen", lastName: "Romano"},
-  {firstName: "Martha", lastName: "Aconomos"},
-  {firstName: "Cat", lastName: "Aconomos"},
-  {firstName: "Horris", lastName: "Winston"},
   {firstName: "Aimee", lastName: "Bostrand"},
   {firstName: "Michelle", lastName: "Gower"},
-  {firstName: "Gina", lastName: "Lydon"},
-  {firstName: "Shawn", lastName: "Barth"},
-  {firstName: "Rosangela", lastName: "Clementi"},
-  {firstName: "Vicky", lastName: "Hsu"},
-  {firstName: "Rickey", lastName: "Hughes"},
-  {firstName: "Linda", lastName: "Perlini"},
-  {firstName: "Erin", lastName: "Ricci"},
-  {firstName: "Katie", lastName: "LaDuca"},
-  {firstName: "Michelle", lastName: "Budz"},
-  {firstName: "Emily", lastName: "Shields"},
+  {firstName: "Kristin", lastName: "Malmstedt"},
+  {firstName: "Logan", lastName: "Althoff"},
+  {firstName: "Dylan", lastName: "Falkenberg"},
+  {firstName: "Oliver", lastName: "Kaplinski"},
+  {firstName: "Adam", lastName: "Lilly"}
 ])
 PersonRoleType.create!([
-  {person_id: 1, role_type_id: 2},
-  {person_id: 2, role_type_id: 2},
-  {person_id: 2, role_type_id: 5},
-  {person_id: 3, role_type_id: 1},
+  {person_id: 1, role_type_id: 3},
+  {person_id: 1, role_type_id: 4},
+  {person_id: 2, role_type_id: 3},
+  {person_id: 2, role_type_id: 4},
+  {person_id: 3, role_type_id: 3},
+  {person_id: 3, role_type_id: 4},
   {person_id: 4, role_type_id: 3},
-  {person_id: 4, role_type_id: 4},
-  {person_id: 5, role_type_id: 3},
-  {person_id: 6, role_type_id: 2},
+  {person_id: 4, role_type_id: 5},
+  {person_id: 5, role_type_id: 1},
+  {person_id: 6, role_type_id: 1},
   {person_id: 7, role_type_id: 1},
-  {person_id: 5, role_type_id: 6},
-  {person_id: 8, role_type_id: 3},
-  {person_id: 8, role_type_id: 6},
-  {person_id: 9, role_type_id: 3},
-  {person_id: 9, role_type_id: 6},
-  {person_id: 10, role_type_id: 3},
-  {person_id: 10, role_type_id: 6},
-  {person_id: 11, role_type_id: 3},
-  {person_id: 11, role_type_id: 6},
-  {person_id: 12, role_type_id: 3},
-  {person_id: 12, role_type_id: 6}
-])
-PhoneNumber.create!([
-  {number: "630-555-1234"},
-  {number: "773-839-1900"},
-  {number: "630-345-9600"},
-  {number: "847-910-7200"}
+  {person_id: 8, role_type_id: 1}
 ])
 PhoneNumberPerson.create!([
-  {person_id: 1, phone_number_id: 4},
-  {person_id: 2, phone_number_id: 2},
+  {person_id: 1, phone_number_id: nil},
+  {person_id: 2, phone_number_id: nil},
   {person_id: 3, phone_number_id: nil},
   {person_id: 4, phone_number_id: nil},
   {person_id: 5, phone_number_id: nil},
-  {person_id: 6, phone_number_id: 3},
+  {person_id: 6, phone_number_id: nil},
   {person_id: 7, phone_number_id: nil},
-  {person_id: 8, phone_number_id: nil},
-  {person_id: 9, phone_number_id: nil},
-  {person_id: 10, phone_number_id: nil},
-  {person_id: 11, phone_number_id: nil},
-  {person_id: 12, phone_number_id: nil}
+  {person_id: 8, phone_number_id: nil}
+])
+Position.create!([
+  {name: "Principal"},
+  {name: "Psychologist"},
+  {name: "Social Work"}
+])
+PositionPerson.create!([
+  {position_id: nil, person_id: 1},
+  {position_id: nil, person_id: 2},
+  {position_id: nil, person_id: 3},
+  {position_id: 2, person_id: 4},
+  {position_id: nil, person_id: 5},
+  {position_id: nil, person_id: 6},
+  {position_id: nil, person_id: 7},
+  {position_id: nil, person_id: 8}
 ])
 RoleType.create!([
   {roleName: "Student"},
   {roleName: "Parent"},
   {roleName: "Staff"},
-  {roleName: "Principal"},
-  {roleName: "PTCBoard"},
   {roleName: "Teacher"},
   {roleName: "Specials"}
+])
+RoomPerson.create!([
+  {room_id: nil, person_id: 1},
+  {room_id: nil, person_id: 2},
+  {room_id: nil, person_id: 3},
+  {room_id: nil, person_id: 4},
+  {room_id: nil, person_id: 5},
+  {room_id: nil, person_id: 6},
+  {room_id: nil, person_id: 7},
+  {room_id: nil, person_id: 8}
 ])
