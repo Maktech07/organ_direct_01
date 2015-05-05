@@ -77,6 +77,25 @@
   <% end %>
 </p>
 
+<p>
+  <strong>Position</strong>
+  <% if @person.position != nil %>
+    <%= @person.position.name %>
+  <% else %>
+    None
+  <% end %>
+</p>
+
+<p>
+  <strong>Department</strong>
+  <% if @person.department != nil %>
+    <%= @person.department.name %>
+  <% else %>
+    None
+  <% end %>
+</p>
+
+
 <%= link_to '', people_path, class: "btn back-btn glyphicon glyphicon-arrow-left", title: "Back" %> &nbsp; Back &nbsp;   
 <%= link_to '', edit_person_path(@person), class: "btn edit-btn glyphicon glyphicon-pencil", title: "Edit" %> &nbsp; Edit &nbsp; 
 

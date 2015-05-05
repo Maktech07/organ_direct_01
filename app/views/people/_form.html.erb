@@ -130,7 +130,7 @@
 
  <div class="field">
      <%= f.label :position %><br>
-     <%= f.fields_for :position do |ps| %>
+     <%= f.fields_for :position_person do |ps| %>
          <%= ps.collection_select(:position_id, Position.all, :id, :name, { :selected => selectPositionValue, include_blank: true }, { } ) %>
      <% end %>
   </div>
