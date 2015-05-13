@@ -52,10 +52,7 @@ class PeopleController < ApplicationController
     respond_to do |format|
       if @person.save
 
-        role_ids = params[ :person_role_types ]
-        role_ids.each do |rid|
-            @person.person_role_types.create( :role_type_id => rid ) 
-        end
+        create_role_types()
 
         format.html { redirect_to @person, notice: 'Person was successfully created.' }
         format.json { render :show, status: :created, location: @person }
@@ -71,6 +68,9 @@ class PeopleController < ApplicationController
   def update
     respond_to do |format|
       if @person.update(person_params)
+
+        update_role_types()
+
         format.html { redirect_to @person, notice: 'Person was successfully updated.' }
         format.json { render :show, status: :ok, location: @person }
       else
@@ -147,6 +147,23 @@ class PeopleController < ApplicationController
 
     def person_role_type_params
         params.require(:person_role_types)
+    end
+
+    def create_role_types
+        role_ids = params[ :person_role_types ]
+
+        if role_ids != nil
+            role_ids.each do |rid|
+                @person.person_role_types.create( :role_type_id => rid ) 
+            end
+        end
+    end
+
+    def update_role_types
+        #remove all fist
+        @person.person_role_types.destroy_all
+        #add valid roles
+        create_role_types()
     end
    
   
