@@ -12,6 +12,8 @@
   <thead>
     <tr>
       <th>Grade level teacher</th>
+      <th>Student Count</th>
+      <th>Student List</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,7 +21,16 @@
   <tbody>
     <% @student_classes.each do |student_class| %>
       <tr>
-        <td><%= student_class.grade_level_teacher %></td>
+        <td><%= student_class.grade_level_teacher.fullInfo %></td>
+        <td><%= student_class.student_count %></td>
+
+        <td>
+        <select>
+            <% for sc in student_class.students %>
+                <option><%= sc.fullName %></option>
+            <% end %>
+        </select>
+        </td>
 
         <td>
             <div>

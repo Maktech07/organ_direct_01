@@ -60,9 +60,8 @@
 
     selectedRoleTypes = []
 
-    roleTypeRows = PersonRoleType.where(:person_id => @person.id)
-    roleTypeRows.each do |rtr|
-        selectedRoleTypes.push(rtr.role_type_id)
+    if @person.role_types != nil
+        selectedRoleTypes = @person.role_types.ids 
     end
 
   %> 

@@ -16,15 +16,25 @@
     <%= f.collection_select(:grade_level_teacher_id, GradeLevelTeacher.all, :id, :fullInfo, { :selected => @student_class.grade_level_teacher_id, include_blank: true }, { } ) %>
   </div>
 
+  <% 
+      selectedStudents = @student_class.students.ids 
+  %>
+
+
+<div class="row">
+<div class="col-xs-5">
  <div class="field">
-     Students<br>
-     <%= f.fields_for :class_members do |cm| %>
-         <%= cm.collection_select(:person_id,Person.joins(:role_types).where(role_types: {roleName: 'Student'}) , :id, :fullName, { include_blank: true }, { :multiple => true } ) %>
-     <% end %>
-  </div>
+     <%= f.label :class_members %>
+     <%= select_tag 'class_members[]', options_from_collection_for_select(Person.joins(:role_types).where(role_types: {roleName: 'Student'}), :id, :fullName, selectedStudents), multiple: true, size: '10%', id: 'studentlist' %>
+</div>
+</div>
+</div>
+
+ <script> gen_duallistbox('#studentlist'); </script>
 
 
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+

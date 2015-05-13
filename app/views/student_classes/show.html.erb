@@ -5,6 +5,17 @@
   <%= @student_class.grade_level_teacher.fullInfo %>
 </p>
 
+<p>
+<strong>Students ( <%= @student_class.student_count %> ):</strong>
+  <ol>
+      <% for s in @student_class.students %>
+        <li><%= s.fullName %> </li>
+      <% end %>
+  </ol>
+
+</p>
+
+
 
 <%= link_to '', student_classes_path, class: "btn back-btn glyphicon glyphicon-arrow-left", title: "Back" %> &nbsp; Back &nbsp;   
 <%= link_to '', edit_student_class_path(@student_class), class: "btn edit-btn glyphicon glyphicon-pencil", title: "Edit" %> &nbsp; Edit &nbsp; 

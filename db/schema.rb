@@ -36,13 +36,13 @@ ActiveRecord::Schema.define(version: 20150429130032) do
 
   create_table "class_members", force: true do |t|
     t.integer  "student_class_id"
-    t.integer  "person_id"
+    t.integer  "student_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "class_members", ["person_id"], name: "index_class_members_on_person_id"
   add_index "class_members", ["student_class_id"], name: "index_class_members_on_student_class_id"
+  add_index "class_members", ["student_id"], name: "index_class_members_on_student_id"
 
   create_table "department_people", force: true do |t|
     t.integer  "department_id"
