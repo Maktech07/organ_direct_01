@@ -18,18 +18,31 @@
 
   <%
     selectedParents = @family.parents.ids
+    selectedChildren = @family.children.ids
   %>
 
 <div class="row">
-    <div class="col-xs-5">
-  <div class="field">
-     Parents<br>
+<div class="col-xs-5">
+<div class="field">
+     Parents/Guardians<br>
      <%= select_tag 'family_parents[]', options_from_collection_for_select(Person.joins(:role_types).where(role_types: {roleName: 'Parent'}), :id, :fullName, selectedParents), multiple: true, size: '10%', id: 'parentlist' %>
  </div>
  </div>
  </div>
 
  <script> gen_duallistbox('#parentlist'); </script>
+
+<div class="row">
+<div class="col-xs-5">
+<div class="field">
+     Children<br>
+     <%= select_tag 'family_children[]', options_from_collection_for_select(Person.joins(:role_types).where(role_types: {roleName: 'Student'}), :id, :fullName, selectedParents), multiple: true, size: '10%', id: 'childrenlist' %>
+ </div>
+ </div>
+ </div>
+
+ <script> gen_duallistbox('#childrenlist'); </script>
+
 
 
 

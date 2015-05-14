@@ -33,6 +33,9 @@
 
         <td>
             <select>
+                <% for fc in family.children %>
+                    <option><%= fc.fullName %></option>
+                <% end %>
             </select>
         </td>
 

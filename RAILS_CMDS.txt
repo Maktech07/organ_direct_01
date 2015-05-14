@@ -503,6 +503,23 @@ In View
 
  A>bin/rake db:migrate RAILS_ENV=development
 
+#######################
+
+# Creating the mapping between the Family and Person { requirement is RoleType is Children }
+# A Family has_many Person (Children)
+# A Person has_one Family
+# the JOIN table in the middle.
+
+# Example below shows 
+
+ T>rails g model <JoinTableName> <Resource1>:belongs_to <Resource2>:belongs_to
+ A>rails g model FamilyChild family:belongs_to child:belongs_to
+
+# Due to generationing new migrations we need to run "bin/rake db:migrate RAILS_ENV=development"
+
+ A>bin/rake db:migrate RAILS_ENV=development
+
+
 
 
 
