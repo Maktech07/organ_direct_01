@@ -12,6 +12,8 @@
   <thead>
     <tr>
       <th>Familyname</th>
+      <th>Parent/Guardians</th>
+      <th>Children</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +22,20 @@
     <% @families.each do |family| %>
       <tr>
         <td><%= family.familyName %></td>
+
+        <td>
+            <select>
+                <% for fp in family.parents %>
+                    <option><%= fp.fullName %></option>
+                <% end %>
+            </select>
+        </td>
+
+        <td>
+            <select>
+            </select>
+        </td>
+
         <td>
             <div>
                 <%= link_to '', family, class: "btn show-btn glyphicon glyphicon-eye-open", title: "Show" %>

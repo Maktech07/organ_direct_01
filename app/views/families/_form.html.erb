@@ -17,16 +17,19 @@
   </div>
 
   <%
-    selectedParents = 0
+    selectedParents = @family.parents.ids
   %>
 
-
- <div class="field">
+<div class="row">
+    <div class="col-xs-5">
+  <div class="field">
      Parents<br>
-     <%= f.fields_for :family_parent do |fp| %>
-         <%= fp.collection_select(:person_id, Person.joins(:role_types).where(role_types: {roleName: 'Parent'}), :id, :fullName, { :selected => selectedParents, include_blank: true }, { :multiple => true } ) %>
-     <% end %>
-  </div>
+     <%= select_tag 'family_parents[]', options_from_collection_for_select(Person.joins(:role_types).where(role_types: {roleName: 'Parent'}), :id, :fullName, selectedParents), multiple: true, size: '10%', id: 'parentlist' %>
+ </div>
+ </div>
+ </div>
+
+ <script> gen_duallistbox('#parentlist'); </script>
 
 
 

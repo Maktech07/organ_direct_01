@@ -100,13 +100,13 @@ ActiveRecord::Schema.define(version: 20150429130032) do
 
   create_table "family_parents", force: true do |t|
     t.integer  "family_id"
-    t.integer  "person_id"
+    t.integer  "parent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "family_parents", ["family_id"], name: "index_family_parents_on_family_id"
-  add_index "family_parents", ["person_id"], name: "index_family_parents_on_person_id"
+  add_index "family_parents", ["parent_id"], name: "index_family_parents_on_parent_id"
 
   create_table "gender_people", force: true do |t|
     t.integer  "gender_id"
